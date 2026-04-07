@@ -64,7 +64,7 @@ select{font-family:var(--font-body)}
 }
 .ba-label{
   position:absolute;top:14px;
-  font-family:var(--font-body);font-size:10px;font-weight:700;
+  font-family:var(--font-);font-size:10px;font-weight:700;
   letter-spacing:.16em;text-transform:uppercase;
   padding:4px 10px;border-radius:0;z-index:4;
 }
@@ -528,11 +528,22 @@ select{font-family:var(--font-body)}
 </style>
 </head>
 <body>
-
+<div style="position:fixed; top:15px; left:15px; z-index:9999;">
+  <a href="https://www.thorcontractors.com/" style="
+    background:#283B62;
+    color:#fff;
+    padding:10px 16px;
+    text-decoration:none;
+    font-weight:600;
+    border-radius:4px;
+    font-family:sans-serif;
+  ">
+    ← Back to Thor Contractors
+  </a>
+</div>
 <!-- NAV -->
 <nav class="nav">
-  <a href="#" class="nav-logo"><img src="thor-logo-white.jpg" alt="Thor Contractors"/></a>
-  <div class="nav-right">
+<a href="https://www.thorcontractors.com/" class="nav-logo"><img src="thor-logo-white.jpg" alt="Thor Contractors"/></a>  <div class="nav-right">
     <a href="#contact" class="nav-link btn-orange">Request a Quote</a>
   </div>
 </nav>
