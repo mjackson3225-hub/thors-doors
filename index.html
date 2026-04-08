@@ -10,402 +10,354 @@
   />
   <style>
     :root {
-      --navy: #1a202d;
-      --orange: #8e6a3a;
-      --white: #ffffff;
-      --ink: #e2e5eb;
-      --muted: #9ca3b3;
-      --panel: #161b24;
-      --line: #2b313f;
-      --shadow: 0 18px 36px rgba(0, 0, 0, 0.42);
+      --bg: #090c10;
+      --bg-alt: #0d1117;
+      --panel: #121821;
+      --panel-2: #161d27;
+      --surface: #1b2431;
+      --line: #2d3644;
+      --line-soft: #3a4354;
+      --ink: #e5ebf4;
+      --muted: #9ca6b8;
+      --bronze: #98734a;
+      --bronze-soft: #b3916a;
+      --shadow: 0 26px 52px rgba(0, 0, 0, 0.52);
       --radius: 8px;
+      --radius-sm: 4px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
       color: var(--ink);
-      background:
-        radial-gradient(circle at 85% 0%, rgba(115, 84, 48, 0.08) 0%, rgba(15, 18, 25, 0) 36%),
-        linear-gradient(180deg, #11151d 0%, #0e1219 100%);
       line-height: 1.5;
       letter-spacing: 0.01em;
+      background:
+        radial-gradient(circle at 86% -4%, rgba(154, 113, 72, 0.14) 0%, rgba(7, 9, 12, 0) 32%),
+        radial-gradient(circle at 16% 0%, rgba(80, 89, 104, 0.14) 0%, rgba(10, 13, 18, 0) 36%),
+        linear-gradient(180deg, #0d1117 0%, #090c10 45%, #07090d 100%);
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .container {
-      width: min(1160px, 92vw);
-      margin: 0 auto;
-    }
+    .container { width: min(1180px, 92vw); margin: 0 auto; }
 
     .site-header {
-      background: rgba(14, 18, 25, 0.9);
-      border-bottom: 1px solid rgba(162, 128, 80, 0.35);
       position: sticky;
       top: 0;
-      z-index: 40;
+      z-index: 50;
+      background: rgba(10, 13, 18, 0.92);
+      border-bottom: 1px solid rgba(178, 144, 103, 0.35);
       backdrop-filter: blur(10px);
     }
 
     .nav {
       min-height: 78px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       gap: 18px;
       padding: 10px 0;
     }
 
-    .logo-link img {
-      height: 44px;
-      width: auto;
-    }
+    .logo-link img { height: 44px; width: auto; }
 
     .nav-right {
       display: flex;
       align-items: center;
-      gap: 18px;
-      flex-wrap: wrap;
       justify-content: flex-end;
+      gap: 16px;
+      flex-wrap: wrap;
     }
 
     .main-site-link {
-      color: rgba(226, 229, 235, 0.84);
-      font-size: 0.92rem;
-      font-weight: 500;
-      letter-spacing: 0.05em;
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
+      color: #c3cad8;
+      font-weight: 600;
     }
 
-    .main-site-link:hover {
-      color: #fff;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
+    .main-site-link:hover { color: #ffffff; }
 
     .btn {
-      border: none;
-      border-radius: 4px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
+      border: 1px solid transparent;
+      border-radius: var(--radius-sm);
+      padding: 11px 15px;
+      font-size: 0.74rem;
       text-transform: uppercase;
-      padding: 12px 16px;
+      letter-spacing: 0.09em;
+      font-weight: 700;
       cursor: pointer;
-      transition: transform 0.14s ease, box-shadow 0.14s ease, background 0.14s ease;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.78rem;
+      transition: transform 0.16s ease, background 0.16s ease, box-shadow 0.16s ease;
     }
 
     .btn:focus-visible,
     input:focus-visible,
     select:focus-visible,
-    textarea:focus-visible {
-      outline: 2px solid rgba(163, 129, 81, 0.48);
+    textarea:focus-visible,
+    .swatch:focus-visible,
+    .finish-card:focus-visible {
+      outline: 2px solid rgba(185, 148, 107, 0.58);
       outline-offset: 2px;
     }
 
     .btn-primary {
-      background: linear-gradient(180deg, #9f7a44 0%, #7b5d34 100%);
-      color: #f6f1e7;
-      border: 1px solid rgba(204, 174, 132, 0.28);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      color: #f7f1e9;
+      background: linear-gradient(180deg, #aa8257 0%, #7f603d 100%);
+      border-color: rgba(227, 196, 156, 0.34);
+      box-shadow: 0 10px 18px rgba(0, 0, 0, 0.34);
     }
 
-    .btn-primary:hover {
-      background: linear-gradient(180deg, #ac8550 0%, #81633c 100%);
-      transform: translateY(-1px);
-    }
+    .btn-primary:hover { transform: translateY(-1px); }
 
     .btn-secondary {
-      background: linear-gradient(180deg, #272f3f 0%, #1a212e 100%);
-      color: #dce1eb;
-      border: 1px solid rgba(168, 177, 195, 0.2);
-    }
-
-    .btn-secondary:hover {
-      background: linear-gradient(180deg, #303a4c 0%, #1f2735 100%);
+      color: #d8dfec;
+      background: linear-gradient(180deg, #2a3342 0%, #1e2734 100%);
+      border-color: rgba(150, 163, 183, 0.28);
     }
 
     .hero {
+      padding: 70px 0 60px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
       background:
-        radial-gradient(circle at 74% 22%, rgba(149, 108, 58, 0.14) 0%, rgba(11, 14, 20, 0) 42%),
-        linear-gradient(180deg, #151b25 0%, #10151d 70%, #0d1219 100%);
-      padding: 62px 0 54px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        linear-gradient(180deg, rgba(14, 19, 27, 0.78) 0%, rgba(9, 13, 18, 0) 80%),
+        radial-gradient(circle at 72% 20%, rgba(177, 132, 86, 0.15) 0%, rgba(10, 14, 20, 0) 42%);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 30px;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 34px;
       align-items: center;
     }
 
     .eyebrow {
-      color: #b7905d;
-      font-weight: 800;
       font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      margin-bottom: 12px;
+      color: #be9767;
+      margin-bottom: 14px;
     }
 
     h1 {
-      font-size: clamp(2rem, 4.5vw, 3.5rem);
+      font-size: clamp(2rem, 4.6vw, 3.55rem);
       line-height: 1.05;
-      color: #f0f2f6;
       margin-bottom: 14px;
-      letter-spacing: 0.01em;
+      color: #f4f7fb;
     }
 
     .hero-copy p {
-      color: #aab2c1;
-      max-width: 54ch;
+      max-width: 56ch;
+      color: #aeb7c7;
       margin-bottom: 24px;
-      font-size: 1.03rem;
+      font-size: 1.04rem;
     }
 
-    .hero-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
     .ba-card {
-      background: linear-gradient(180deg, #1b202a 0%, #11161f 100%);
+      border: 1px solid var(--line-soft);
       border-radius: var(--radius);
+      background: linear-gradient(180deg, #171f2a 0%, #10161f 100%);
       box-shadow: var(--shadow);
       overflow: hidden;
-      border: 1px solid #343d4f;
-    }
-
-    .ba-top {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: stretch;
-    }
-
-    .ba-pane {
       position: relative;
-      min-height: 260px;
-      overflow: hidden;
     }
 
-    .ba-pane img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .ba-card::before {
+      content: "Transformation Gallery";
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 1;
+      font-size: 0.64rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #d8c2a3;
+      background: rgba(14, 18, 25, 0.86);
+      border: 1px solid rgba(177, 141, 101, 0.45);
+      padding: 5px 8px;
+      border-radius: 3px;
     }
+
+    .ba-top { display: grid; grid-template-columns: 1fr 1fr; }
+
+    .ba-pane { min-height: 290px; position: relative; overflow: hidden; }
+
+    .ba-pane img { width: 100%; height: 100%; object-fit: cover; filter: contrast(1.06) saturate(0.96); }
 
     .ba-label {
       position: absolute;
-      top: 12px;
-      left: 12px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
+      left: 10px;
+      bottom: 10px;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #fff;
-      padding: 6px 8px;
+      font-weight: 800;
+      padding: 5px 8px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: rgba(10, 14, 20, 0.84);
+      color: #f4f7fd;
       border-radius: 3px;
-      background: rgba(13, 18, 26, 0.88);
-      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .ba-pane.after .ba-label {
-      background: rgba(142, 106, 58, 0.88);
-      color: #f0e7d8;
-      border-color: rgba(219, 190, 152, 0.35);
+      border-color: rgba(214, 179, 137, 0.4);
+      background: rgba(122, 88, 52, 0.76);
+      color: #f8efe5;
     }
 
     .ba-footer {
-      border-top: 1px solid #2f3746;
+      border-top: 1px solid #313b49;
+      font-size: 0.92rem;
+      color: #b0bac8;
       padding: 14px 16px;
-      font-size: 0.95rem;
-      color: #b0b8c6;
-      background: #131822;
+      background: #121923;
     }
 
-    .section {
-      padding: 64px 0;
-    }
+    .section { padding: 72px 0; }
 
     #configurator.section {
-      background:
-        radial-gradient(circle at 20% 8%, rgba(149, 109, 60, 0.14) 0%, rgba(19, 24, 34, 0) 36%),
-        linear-gradient(180deg, #0f141d 0%, #0b1018 100%);
       border-top: 1px solid rgba(255, 255, 255, 0.05);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      background:
+        radial-gradient(circle at 24% 12%, rgba(170, 129, 85, 0.14) 0%, rgba(10, 14, 20, 0) 42%),
+        linear-gradient(180deg, #0d1219 0%, #090d13 100%);
     }
 
-    .section-head {
-      margin-bottom: 26px;
-    }
+    .section-head { margin-bottom: 28px; }
 
     #configurator .section-head h2 {
-      color: #ffffff;
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-size: clamp(1.7rem, 3vw, 2.45rem);
+      color: #f5f8fd;
       margin-bottom: 8px;
-      line-height: 1.1;
     }
 
-    #configurator .section-head p {
-      color: rgba(201, 209, 223, 0.78);
-      max-width: 70ch;
-    }
+    #configurator .section-head p { color: #aab4c5; max-width: 75ch; }
 
     .config-wrap {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 24px;
+      grid-template-columns: minmax(0, 1.22fr) minmax(0, 0.78fr);
+      gap: 26px;
       align-items: start;
     }
 
     .card {
-      background: #fff;
-      border: 1px solid var(--line);
       border-radius: var(--radius);
+      border: 1px solid rgba(133, 145, 164, 0.28);
+      background: linear-gradient(180deg, #151c26 0%, #0f151e 100%);
       box-shadow: var(--shadow);
     }
 
-    #configurator .card {
-      background: linear-gradient(180deg, rgba(23, 29, 40, 0.98) 0%, rgba(13, 17, 25, 1) 100%);
-      border: 1px solid rgba(115, 126, 146, 0.28);
-      box-shadow: 0 26px 46px rgba(0, 0, 0, 0.52), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-    }
+    .preview-card { padding: 18px; }
 
-    .preview-card {
-      padding: 20px;
-      position: relative;
-    }
-
-    .preview-card::before {
-      content: "Showroom Preview";
-      display: inline-block;
+    .preview-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
       margin-bottom: 12px;
-      padding: 4px 9px;
-      border: 1px solid rgba(204, 174, 132, 0.34);
-      color: #c7ab82;
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
+    }
+
+    .preview-title {
+      font-size: 0.72rem;
       text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #cbab83;
+      border: 1px solid rgba(179, 143, 101, 0.38);
+      padding: 4px 8px;
       border-radius: 3px;
     }
 
+    .preview-caption { color: #8e9bae; font-size: 0.82rem; }
+
     .canvas-frame {
-      background:
-        radial-gradient(circle at 50% 22%, rgba(194, 157, 111, 0.09) 0%, rgba(18, 24, 34, 0) 38%),
-        linear-gradient(180deg, #171d28 0%, #0e131b 100%);
       border-radius: 6px;
-      border: 1px solid rgba(143, 156, 178, 0.28);
-      padding: 18px;
-      box-shadow: inset 0 16px 35px rgba(0, 0, 0, 0.48);
+      border: 1px solid rgba(126, 141, 164, 0.34);
+      background:
+        linear-gradient(180deg, rgba(28, 37, 50, 0.92) 0%, rgba(12, 18, 26, 0.98) 100%),
+        repeating-linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.015) 0,
+          rgba(255, 255, 255, 0.015) 1px,
+          transparent 1px,
+          transparent 88px
+        );
+      box-shadow: inset 0 22px 30px rgba(0, 0, 0, 0.42);
+      padding: 16px;
     }
 
     canvas {
       width: 100%;
-      max-width: 640px;
-      display: block;
+      max-width: 680px;
       margin: 0 auto;
-      background: transparent;
+      display: block;
       border-radius: 4px;
-      box-shadow: 0 24px 38px rgba(0, 0, 0, 0.62);
+      box-shadow: 0 26px 40px rgba(0, 0, 0, 0.6);
     }
 
-    .controls-card {
-      padding: 20px;
-    }
-
-    .controls-grid {
-      display: grid;
-      gap: 14px;
-    }
+    .controls-card { padding: 18px; }
+    .controls-grid { display: grid; gap: 14px; }
 
     .control-group,
     .field,
     .control-actions {
-      background: linear-gradient(180deg, rgba(31, 38, 52, 0.7) 0%, rgba(20, 26, 37, 0.76) 100%);
-      border: 1px solid rgba(124, 137, 159, 0.22);
+      border: 1px solid rgba(121, 135, 156, 0.26);
       border-radius: 6px;
+      background: linear-gradient(180deg, rgba(33, 43, 59, 0.76) 0%, rgba(20, 28, 39, 0.86) 100%);
       padding: 12px;
     }
 
     .control-group h3 {
-      font-size: 0.86rem;
-      color: #d7ddea;
-      margin-bottom: 10px;
-      font-weight: 600;
-      letter-spacing: 0.07em;
+      font-size: 0.74rem;
       text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 700;
+      color: #d8e0ed;
+      margin-bottom: 10px;
     }
 
-    .preset-row {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(40px, 1fr));
-      gap: 10px;
-    }
+    .preset-row { display: grid; grid-template-columns: repeat(5, minmax(42px, 1fr)); gap: 10px; }
 
-    .swatch-wrap {
-      display: grid;
-      gap: 7px;
-      justify-items: center;
-    }
+    .swatch-wrap { display: grid; gap: 6px; justify-items: center; }
 
     .swatch {
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      border-radius: 4px;
-      aspect-ratio: 1 / 1;
-      box-shadow: 0 0 0 1px rgba(19, 24, 34, 0.85), inset 0 10px 18px rgba(255, 255, 255, 0.08);
-      cursor: pointer;
       width: 100%;
+      aspect-ratio: 1 / 1;
+      border: 1px solid rgba(240, 244, 250, 0.4);
+      border-radius: 4px;
+      cursor: pointer;
+      box-shadow: inset 0 8px 12px rgba(255, 255, 255, 0.06), 0 0 0 1px rgba(7, 11, 16, 0.9);
     }
 
     .swatch.active {
+      border-color: rgba(241, 218, 186, 0.55);
       box-shadow:
-        0 0 0 1px rgba(223, 200, 163, 0.22),
-        0 0 0 2px rgba(158, 122, 74, 0.95),
-        inset 0 10px 18px rgba(255, 255, 255, 0.08);
+        0 0 0 1px rgba(194, 160, 120, 0.72),
+        0 0 0 2px rgba(120, 86, 51, 0.9),
+        inset 0 8px 12px rgba(255, 255, 255, 0.06);
     }
 
     .swatch-label {
-      font-size: 0.72rem;
-      line-height: 1.2;
-      color: rgba(214, 221, 232, 0.86);
-      font-weight: 500;
+      font-size: 0.68rem;
+      color: #bfc8d8;
       text-align: center;
+      line-height: 1.2;
+      font-weight: 600;
     }
 
-    .field {
-      display: grid;
-      gap: 7px;
-    }
+    .field { display: grid; gap: 8px; }
 
     .field label {
-      color: rgba(215, 222, 234, 0.88);
-      font-weight: 500;
-      font-size: 0.79rem;
-      letter-spacing: 0.06em;
+      font-size: 0.7rem;
       text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      color: #cfdae9;
     }
 
     input[type="color"],
@@ -419,193 +371,167 @@
     }
 
     input[type="color"] {
-      height: 42px;
-      border: 1px solid rgba(166, 183, 215, 0.34);
+      height: 44px;
       border-radius: 4px;
-      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(161, 176, 200, 0.36);
+      background: rgba(9, 14, 20, 0.98);
       padding: 2px;
       cursor: pointer;
     }
 
-    input[type="range"] {
-      accent-color: #90704b;
-      cursor: pointer;
-    }
+    input[type="range"] { accent-color: #8f6a44; cursor: pointer; }
 
     select,
-    input[type="file"],
     input[type="text"],
     input[type="email"],
-    textarea {
-      border: 1px solid #cfd8e8;
-      border-radius: 8px;
-      padding: 10px 12px;
-      font: inherit;
-      color: var(--ink);
-      background: #fff;
-    }
-
-    #configurator select,
-    #configurator input[type="file"],
-    #configurator input[type="text"],
-    #configurator input[type="email"],
-    #configurator textarea {
-      border: 1px solid rgba(166, 183, 215, 0.34);
+    textarea,
+    input[type="file"] {
+      border: 1px solid rgba(155, 170, 194, 0.36);
       border-radius: 4px;
-      padding: 10px 12px;
+      padding: 10px 11px;
+      background: rgba(8, 13, 19, 0.95);
+      color: #edf3fc;
       font: inherit;
-      color: #eef2fb;
-      background: rgba(12, 18, 27, 0.95);
     }
 
-    #configurator input[type="file"]::file-selector-button {
-      background: linear-gradient(180deg, #9c7645 0%, #795a34 100%);
-      border: none;
-      color: #f8f1e5;
-      padding: 7px 10px;
-      border-radius: 3px;
+    input[type="file"]::file-selector-button {
       margin-right: 10px;
+      border: none;
+      border-radius: 3px;
+      padding: 7px 9px;
+      background: linear-gradient(180deg, #a27e55 0%, #7b5d3d 100%);
+      color: #f8f2e8;
       font-weight: 700;
       cursor: pointer;
     }
 
-    #configurator .btn-secondary {
-      background: linear-gradient(180deg, #2a3345 0%, #1e2736 100%);
-      border: 1px solid rgba(171, 182, 200, 0.2);
+    .finish-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin-bottom: 8px;
     }
 
-    #configurator .btn-secondary:hover {
-      background: linear-gradient(180deg, #323f55 0%, #232e40 100%);
+    .finish-card {
+      display: grid;
+      gap: 5px;
+      text-align: left;
+      border-radius: 4px;
+      border: 1px solid rgba(140, 154, 177, 0.3);
+      background: linear-gradient(180deg, #202938 0%, #17202d 100%);
+      color: #dde5f2;
+      padding: 7px;
+      cursor: pointer;
+      min-height: 84px;
+      transition: border-color 0.15s ease, transform 0.15s ease;
     }
 
-    .control-actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
+    .finish-chip {
+      height: 36px;
+      border-radius: 3px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: inset 0 2px 6px rgba(255, 255, 255, 0.06);
     }
+
+    .finish-card small {
+      font-size: 0.62rem;
+      color: #93a1b6;
+      line-height: 1.25;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      font-weight: 700;
+    }
+
+    .finish-card strong { font-size: 0.69rem; line-height: 1.2; font-weight: 700; }
+
+    .finish-card.active {
+      border-color: rgba(206, 170, 128, 0.7);
+      box-shadow: inset 0 0 0 1px rgba(120, 87, 50, 0.85);
+    }
+
+    .finish-select-note {
+      color: #99a6bb;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+    }
+
+    .control-actions { display: flex; gap: 10px; flex-wrap: wrap; }
 
     .materials {
       margin-top: 30px;
       border-radius: var(--radius);
       overflow: hidden;
-      border: 1px solid #353e4e;
-      box-shadow: 0 20px 36px rgba(0, 0, 0, 0.45);
+      border: 1px solid #384354;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.48);
+      background: #111722;
     }
 
-    .materials img {
-      width: 100%;
-      height: auto;
+    .materials figcaption {
+      font-size: 0.8rem;
+      color: #a7b2c3;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 11px 13px;
+      border-top: 1px solid #323c4b;
+      background: #131b27;
     }
 
     .cta {
-      background: linear-gradient(180deg, #121822 0%, #0c1118 100%);
-      color: #fff;
-      padding: 68px 0;
+      padding: 72px 0;
       border-top: 1px solid rgba(255, 255, 255, 0.05);
+      background: linear-gradient(180deg, #101621 0%, #0b0f15 100%);
     }
 
-    .cta-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      align-items: start;
-    }
+    .cta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
 
     .cta h2 {
-      font-size: clamp(1.7rem, 3.2vw, 2.6rem);
+      font-size: clamp(1.75rem, 3.2vw, 2.65rem);
       line-height: 1.1;
       margin-bottom: 12px;
     }
 
-    .cta p {
-      color: rgba(218, 224, 234, 0.88);
-      max-width: 46ch;
-    }
+    .cta p { color: #afbacb; max-width: 46ch; }
 
     .form-card {
-      background: linear-gradient(180deg, #1a202c 0%, #131a24 100%);
       border-radius: var(--radius);
-      border: 1px solid rgba(162, 174, 195, 0.28);
+      border: 1px solid rgba(147, 162, 184, 0.3);
+      background: linear-gradient(180deg, #1a2230 0%, #121925 100%);
       padding: 18px;
-      color: #eef3fa;
     }
 
-    .form-grid {
-      display: grid;
-      gap: 12px;
-    }
+    .form-grid { display: grid; gap: 12px; }
 
-    .form-card .field {
-      background: transparent;
-      border: 0;
-      border-radius: 0;
-      padding: 0;
-    }
+    .form-card .field { border: none; background: transparent; padding: 0; }
 
-    .form-card label {
-      color: rgba(219, 226, 236, 0.92);
-    }
-
-    .form-card input[type="text"],
-    .form-card input[type="email"],
-    .form-card textarea {
-      border: 1px solid rgba(166, 183, 215, 0.32);
-      border-radius: 4px;
-      color: #eef3fa;
-      background: rgba(12, 18, 27, 0.92);
-    }
+    .form-card label { color: #d5dfec; }
 
     .form-card input::placeholder,
-    .form-card textarea::placeholder {
-      color: rgba(203, 210, 223, 0.6);
-    }
+    .form-card textarea::placeholder { color: #92a0b5; }
 
-    textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
+    textarea { min-height: 120px; resize: vertical; }
 
     footer {
-      background: #090d13;
-      color: rgba(255, 255, 255, 0.85);
-      padding: 18px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      background: #070a0f;
+      color: rgba(230, 236, 247, 0.82);
       text-align: center;
+      padding: 18px 0;
       font-size: 0.9rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.07);
     }
 
-    @media (max-width: 980px) {
+    @media (max-width: 1030px) {
       .hero-grid,
       .config-wrap,
-      .cta-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .ba-pane {
-        min-height: 210px;
-      }
+      .cta-grid { grid-template-columns: 1fr; }
     }
 
-    @media (max-width: 700px) {
-      .nav {
-        min-height: 88px;
-      }
-
-      .nav-right {
-        gap: 10px;
-      }
-
-      .logo-link img {
-        height: 38px;
-      }
-
-      .main-site-link {
-        font-size: 0.86rem;
-      }
-
-      .preset-row {
-        grid-template-columns: repeat(5, minmax(34px, 1fr));
-      }
+    @media (max-width: 760px) {
+      .finish-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .ba-pane { min-height: 210px; }
+      .nav-right { gap: 10px; }
+      .logo-link img { height: 38px; }
+      .main-site-link { font-size: 0.74rem; }
     }
   </style>
 </head>
@@ -627,10 +553,10 @@
       <div class="container hero-grid">
         <div class="hero-copy">
           <p class="eyebrow">Thor Contractors | Thor's Doors</p>
-          <h1>Premium Door Wraps for Commercial Spaces</h1>
+          <h1>Architectural Door Finishes for Premium Commercial Interiors</h1>
           <p>
-            Transform plain entrances into premium brand statements. Thor's Doors combines durable wrap materials, precision installation,
-            and design-forward finishes tailored for offices, retail, healthcare, hospitality, and multifamily properties.
+            Configure durable, specification-ready wraps with a material-driven palette. Thor's Doors blends contractor-grade reliability
+            with curated surface finishes inspired by high-end hospitality, workplace, and multifamily interiors.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#contact">Request a Quote</a>
@@ -649,7 +575,7 @@
               <span class="ba-label">After</span>
             </div>
           </div>
-          <div class="ba-footer">Commercial-grade wraps engineered for long-term visual impact and easy maintenance.</div>
+          <div class="ba-footer">Refinish existing openings into resilient, premium-looking assets without full door replacement.</div>
         </div>
       </div>
     </section>
@@ -659,13 +585,17 @@
         <div class="section-head">
           <h2>Live Door Configurator</h2>
           <p>
-            Build your look in real time. Choose a color preset, fine-tune hue with the color wheel, adjust brightness, select a finish,
-            upload custom artwork, and reset with one click.
+            Build your selection in real time. Choose a base color, adjust lightness, dial in a finish system, add artwork, and reset instantly.
+            The preview is tuned to feel like a premium corridor specification tool.
           </p>
         </div>
 
         <div class="config-wrap">
           <article class="card preview-card">
+            <div class="preview-meta">
+              <span class="preview-title">Showroom Preview</span>
+              <span class="preview-caption">Commercial corridor simulation · finish and color responsive</span>
+            </div>
             <div class="canvas-frame">
               <canvas id="doorCanvas" width="760" height="520" aria-label="Live door preview"></canvas>
             </div>
@@ -674,34 +604,34 @@
           <aside class="card controls-card" aria-label="Door configurator controls">
             <div class="controls-grid">
               <div class="control-group">
-                <h3>Color Presets</h3>
+                <h3>Base Color Presets</h3>
                 <div class="preset-row" id="presetRow">
                   <div class="swatch-wrap">
-                    <button class="swatch" type="button" data-color="#283B62" style="background:#283B62" aria-label="Navy"></button>
-                    <span class="swatch-label">Navy</span>
+                    <button class="swatch" type="button" data-color="#283B62" style="background:#283B62" aria-label="Navy Steel"></button>
+                    <span class="swatch-label">Navy Steel</span>
                   </div>
                   <div class="swatch-wrap">
-                    <button class="swatch" type="button" data-color="#ED930E" style="background:#ED930E" aria-label="Orange"></button>
-                    <span class="swatch-label">Orange</span>
+                    <button class="swatch" type="button" data-color="#8A5C2E" style="background:#8A5C2E" aria-label="Bronzed Teak"></button>
+                    <span class="swatch-label">Bronzed Teak</span>
                   </div>
                   <div class="swatch-wrap">
-                    <button class="swatch" type="button" data-color="#C5CDD9" style="background:#C5CDD9" aria-label="Light Gray"></button>
-                    <span class="swatch-label">Light Gray</span>
+                    <button class="swatch" type="button" data-color="#C5CDD9" style="background:#C5CDD9" aria-label="Soft Alloy"></button>
+                    <span class="swatch-label">Soft Alloy</span>
                   </div>
                   <div class="swatch-wrap">
-                    <button class="swatch" type="button" data-color="#2E5143" style="background:#2E5143" aria-label="Forest Green"></button>
-                    <span class="swatch-label">Forest Green</span>
+                    <button class="swatch" type="button" data-color="#2E5143" style="background:#2E5143" aria-label="Deep Olive"></button>
+                    <span class="swatch-label">Deep Olive</span>
                   </div>
                   <div class="swatch-wrap">
-                    <button class="swatch" type="button" data-color="#3B3A39" style="background:#3B3A39" aria-label="Charcoal"></button>
-                    <span class="swatch-label">Charcoal</span>
+                    <button class="swatch" type="button" data-color="#3B3A39" style="background:#3B3A39" aria-label="Graphite"></button>
+                    <span class="swatch-label">Graphite</span>
                   </div>
                 </div>
               </div>
 
               <div class="field">
                 <label for="doorColor">Color Wheel</label>
-                <input id="doorColor" type="color" value="#283B62" />
+                <input id="doorColor" type="color" value="#6E4A2D" />
               </div>
 
               <div class="field">
@@ -709,17 +639,32 @@
                 <input id="brightness" type="range" min="65" max="130" value="100" />
               </div>
 
+              <div class="control-group">
+                <h3>Finish Collection</h3>
+                <div class="finish-grid" id="finishGrid"></div>
+              </div>
+
               <div class="field">
-                <label for="finish">Finish</label>
+                <label for="finish">Finish (Detailed)</label>
                 <select id="finish">
                   <option value="wood-oak">Wood Grain – Oak</option>
                   <option value="wood-walnut">Wood Grain – Walnut</option>
+                  <option value="wood-warm-walnut">Warm Walnut</option>
+                  <option value="wood-smoked-walnut">Smoked Walnut</option>
+                  <option value="wood-dark-oak">Dark Oak</option>
+                  <option value="wood-natural-oak">Natural Oak</option>
+                  <option value="wood-espresso">Espresso Wood Grain</option>
+                  <option value="wood-weathered">Weathered Wood</option>
                   <option value="matte-black">Matte Black</option>
+                  <option value="matte-graphite">Matte Graphite</option>
                   <option value="matte-white">Matte White</option>
                   <option value="gloss-white">Gloss White</option>
                   <option value="brushed">Brushed Metal</option>
+                  <option value="smoked-metal">Smoked Metal</option>
+                  <option value="stone-slate">Refined Slate</option>
                   <option value="custom-print">Custom Print</option>
                 </select>
+                <p class="finish-select-note">Finish cards above and this selector are synchronized.</p>
               </div>
 
               <div class="field">
@@ -736,6 +681,7 @@
 
         <figure class="materials" aria-label="Thor's Doors material options">
           <img src="materials.png" alt="Thor's Doors material and finish options" />
+          <figcaption>Architectural wrap references · curated material direction for premium corridors and entries.</figcaption>
         </figure>
       </div>
     </section>
@@ -743,11 +689,11 @@
     <section class="cta" id="contact">
       <div class="container cta-grid">
         <div>
-          <p class="eyebrow" style="color:#ffb13b; margin-bottom: 10px;">Request a Quote</p>
-          <h2>Let's Build Your Next Door Transformation</h2>
+          <p class="eyebrow" style="color:#cc9f69; margin-bottom: 10px;">Request a Quote</p>
+          <h2>Specify a Better Door Program for Your Property</h2>
           <p>
-            Tell us about your property, scope, and timeline. A Thor Contractors specialist will follow up with recommendations,
-            finish options, and a custom quote.
+            Share your scope, quantity, and performance requirements. A Thor Contractors specialist will provide finish recommendations,
+            installation guidance, and a customized quote.
           </p>
         </div>
 
@@ -790,6 +736,22 @@
       const artworkInput = document.getElementById("artwork");
       const resetButton = document.getElementById("resetConfig");
       const presetButtons = Array.from(document.querySelectorAll(".swatch"));
+      const finishGrid = document.getElementById("finishGrid");
+
+      const finishCards = [
+        { value: "wood-walnut", label: "Walnut", category: "Wood Grain", style: "linear-gradient(135deg,#5f3b21 0%,#8b5a33 45%,#3a2414 100%)" },
+        { value: "wood-warm-walnut", label: "Warm Walnut", category: "Wood Grain", style: "linear-gradient(135deg,#6f4325 0%,#9f6a3d 48%,#4a2c19 100%)" },
+        { value: "wood-smoked-walnut", label: "Smoked Walnut", category: "Wood Grain", style: "linear-gradient(135deg,#3a2a1d 0%,#5b4331 50%,#241a13 100%)" },
+        { value: "wood-dark-oak", label: "Dark Oak", category: "Wood Grain", style: "linear-gradient(135deg,#4f3927 0%,#6d5139 50%,#332417 100%)" },
+        { value: "wood-natural-oak", label: "Natural Oak", category: "Wood Grain", style: "linear-gradient(135deg,#8a6a45 0%,#b18b5d 48%,#6a4f31 100%)" },
+        { value: "wood-espresso", label: "Espresso", category: "Wood Grain", style: "linear-gradient(135deg,#2f1d13 0%,#44291b 48%,#1f120b 100%)" },
+        { value: "wood-weathered", label: "Weathered", category: "Wood Grain", style: "linear-gradient(135deg,#6a635b 0%,#8a8378 50%,#514b43 100%)" },
+        { value: "matte-black", label: "Matte Black", category: "Solid", style: "linear-gradient(135deg,#16191d 0%,#2b2f35 50%,#0f1215 100%)" },
+        { value: "matte-graphite", label: "Matte Graphite", category: "Solid", style: "linear-gradient(135deg,#2f3540 0%,#4a525f 48%,#252c35 100%)" },
+        { value: "smoked-metal", label: "Smoked Metal", category: "Metal", style: "linear-gradient(135deg,#3d434c 0%,#6f7782 50%,#2f353f 100%)" },
+        { value: "stone-slate", label: "Refined Slate", category: "Stone", style: "linear-gradient(135deg,#4d5158 0%,#767b84 48%,#3a3f47 100%)" },
+        { value: "custom-print", label: "Custom Print", category: "Graphic", style: "linear-gradient(135deg,#424f67 0%,#6f4f6f 48%,#344459 100%)" }
+      ];
 
       const initialState = {
         color: "#6E4A2D",
@@ -798,30 +760,15 @@
         artwork: null
       };
 
-      const state = {
-        color: initialState.color,
-        brightness: initialState.brightness,
-        finish: initialState.finish,
-        artwork: initialState.artwork
-      };
-
+      const state = { ...initialState };
       doorColorInput.value = initialState.color;
 
-      const doorRect = {
-        x: 210,
-        y: 58,
-        w: 340,
-        h: 410
-      };
+      const doorRect = { x: 206, y: 52, w: 344, h: 418 };
 
       function hexToRgb(hex) {
         const cleanHex = hex.replace("#", "");
         const bigint = parseInt(cleanHex, 16);
-        return {
-          r: (bigint >> 16) & 255,
-          g: (bigint >> 8) & 255,
-          b: bigint & 255
-        };
+        return { r: (bigint >> 16) & 255, g: (bigint >> 8) & 255, b: bigint & 255 };
       }
 
       function applyBrightness(hex, brightness) {
@@ -840,45 +787,87 @@
         });
       }
 
+      function syncFinishCards() {
+        Array.from(document.querySelectorAll(".finish-card")).forEach((card) => {
+          card.classList.toggle("active", card.dataset.finish === state.finish);
+        });
+      }
+
+      function buildFinishCards() {
+        finishCards.forEach((item) => {
+          const card = document.createElement("button");
+          card.type = "button";
+          card.className = "finish-card";
+          card.dataset.finish = item.value;
+          card.setAttribute("aria-label", `${item.label} finish`);
+          card.innerHTML = `
+            <span class="finish-chip" style="background:${item.style}"></span>
+            <small>${item.category}</small>
+            <strong>${item.label}</strong>
+          `;
+          card.addEventListener("click", () => {
+            finishSelect.value = item.value;
+            setStateAndRender({ finish: item.value });
+          });
+          finishGrid.appendChild(card);
+        });
+      }
+
+      function applyWoodGrain(baseStops, lineColor, waveA, waveB, lineStep = 6.5) {
+        const wood = ctx.createLinearGradient(doorRect.x, doorRect.y, doorRect.x + doorRect.w, doorRect.y + doorRect.h);
+        baseStops.forEach(([stop, color]) => wood.addColorStop(stop, color));
+        ctx.fillStyle = wood;
+        ctx.fillRect(doorRect.x, doorRect.y, doorRect.w, doorRect.h);
+
+        ctx.strokeStyle = lineColor;
+        ctx.lineWidth = 1;
+        for (let y = doorRect.y + 3; y < doorRect.y + doorRect.h; y += lineStep) {
+          ctx.beginPath();
+          ctx.moveTo(doorRect.x, y);
+          ctx.bezierCurveTo(
+            doorRect.x + doorRect.w * 0.25,
+            y + waveA,
+            doorRect.x + doorRect.w * 0.72,
+            y + waveB,
+            doorRect.x + doorRect.w,
+            y
+          );
+          ctx.stroke();
+        }
+      }
+
       function drawScene() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         const wallGradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-        wallGradient.addColorStop(0, "#262d39");
-        wallGradient.addColorStop(0.48, "#1a202b");
-        wallGradient.addColorStop(1, "#141922");
+        wallGradient.addColorStop(0, "#2a313f");
+        wallGradient.addColorStop(0.47, "#1a222f");
+        wallGradient.addColorStop(1, "#121823");
         ctx.fillStyle = wallGradient;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        const wallPanelGradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
-        wallPanelGradient.addColorStop(0, "rgba(255,255,255,0.03)");
-        wallPanelGradient.addColorStop(0.55, "rgba(255,255,255,0)");
-        wallPanelGradient.addColorStop(1, "rgba(255,255,255,0.05)");
-        ctx.fillStyle = wallPanelGradient;
-        for (let x = 0; x < canvas.width; x += 95) {
-          ctx.fillRect(x, 0, 2, 438);
+        const panelLight = ctx.createLinearGradient(0, 0, canvas.width, 0);
+        panelLight.addColorStop(0, "rgba(255,255,255,0.04)");
+        panelLight.addColorStop(0.6, "rgba(255,255,255,0)");
+        panelLight.addColorStop(1, "rgba(255,255,255,0.06)");
+        ctx.fillStyle = panelLight;
+        for (let x = 0; x < canvas.width; x += 90) {
+          ctx.fillRect(x, 0, 2, 440);
         }
 
-        ctx.fillStyle = "#0e131b";
-        ctx.fillRect(0, 438, canvas.width, 82);
+        ctx.fillStyle = "#0d121a";
+        ctx.fillRect(0, 440, canvas.width, 80);
 
-        const vignette = ctx.createRadialGradient(
-          canvas.width / 2,
-          canvas.height / 2,
-          40,
-          canvas.width / 2,
-          canvas.height / 2,
-          420
-        );
+        const vignette = ctx.createRadialGradient(canvas.width / 2, canvas.height / 2, 60, canvas.width / 2, canvas.height / 2, 430);
         vignette.addColorStop(0, "rgba(255,255,255,0.08)");
-        vignette.addColorStop(1, "rgba(0,0,0,0.58)");
+        vignette.addColorStop(1, "rgba(0,0,0,0.64)");
         ctx.fillStyle = vignette;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        ctx.fillStyle = "#737d8f";
-        ctx.fillRect(doorRect.x - 16, doorRect.y - 16, doorRect.w + 32, doorRect.h + 32);
+        ctx.fillStyle = "#7a8391";
+        ctx.fillRect(doorRect.x - 18, doorRect.y - 18, doorRect.w + 36, doorRect.h + 36);
 
-        ctx.fillStyle = "#303846";
+        ctx.fillStyle = "#313947";
         ctx.fillRect(doorRect.x - 7, doorRect.y - 7, doorRect.w + 14, doorRect.h + 14);
 
         ctx.fillStyle = applyBrightness(state.color, state.brightness);
@@ -890,73 +879,89 @@
         ctx.clip();
 
         if (state.finish === "wood-oak") {
-          const oakBase = ctx.createLinearGradient(doorRect.x, doorRect.y, doorRect.x + doorRect.w, doorRect.y + doorRect.h);
-          oakBase.addColorStop(0, "rgba(182, 133, 74, 0.76)");
-          oakBase.addColorStop(0.45, "rgba(143, 97, 49, 0.42)");
-          oakBase.addColorStop(1, "rgba(104, 69, 34, 0.55)");
-          ctx.fillStyle = oakBase;
-          ctx.fillRect(doorRect.x, doorRect.y, doorRect.w, doorRect.h);
-
-          ctx.strokeStyle = "rgba(108, 70, 30, 0.34)";
-          for (let y = doorRect.y + 4; y < doorRect.y + doorRect.h; y += 7) {
-            ctx.beginPath();
-            ctx.moveTo(doorRect.x, y);
-            ctx.bezierCurveTo(
-              doorRect.x + doorRect.w * 0.3,
-              y - 2,
-              doorRect.x + doorRect.w * 0.65,
-              y + 2,
-              doorRect.x + doorRect.w,
-              y
-            );
-            ctx.stroke();
-          }
-        }
-
-        if (state.finish === "wood-walnut") {
-          const walnutBase = ctx.createLinearGradient(doorRect.x, doorRect.y, doorRect.x + doorRect.w, doorRect.y + doorRect.h);
-          walnutBase.addColorStop(0, "rgba(111, 68, 38, 0.9)");
-          walnutBase.addColorStop(0.25, "rgba(88, 51, 28, 0.7)");
-          walnutBase.addColorStop(0.55, "rgba(62, 35, 17, 0.55)");
-          walnutBase.addColorStop(1, "rgba(43, 23, 10, 0.7)");
-          ctx.fillStyle = walnutBase;
-          ctx.fillRect(doorRect.x, doorRect.y, doorRect.w, doorRect.h);
-
-          ctx.strokeStyle = "rgba(28, 14, 7, 0.4)";
-          ctx.lineWidth = 1.1;
-          for (let y = doorRect.y + 5; y < doorRect.y + doorRect.h; y += 6) {
-            ctx.beginPath();
-            ctx.moveTo(doorRect.x, y);
-            ctx.bezierCurveTo(
-              doorRect.x + doorRect.w * 0.26,
-              y + 2,
-              doorRect.x + doorRect.w * 0.75,
-              y - 3,
-              doorRect.x + doorRect.w,
-              y
-            );
-            ctx.stroke();
-          }
-
-          const warmHighlight = ctx.createLinearGradient(
-            doorRect.x + 24,
-            doorRect.y,
-            doorRect.x + doorRect.w * 0.52,
-            doorRect.y
+          applyWoodGrain(
+            [[0, "rgba(182,133,74,0.8)"], [0.45, "rgba(143,97,49,0.45)"], [1, "rgba(104,69,34,0.56)"]],
+            "rgba(100,66,31,0.34)",
+            -2,
+            2,
+            7
           );
-          warmHighlight.addColorStop(0, "rgba(255, 210, 150, 0.22)");
-          warmHighlight.addColorStop(1, "rgba(255, 210, 150, 0)");
-          ctx.fillStyle = warmHighlight;
-          ctx.fillRect(doorRect.x + 14, doorRect.y + 10, doorRect.w * 0.48, doorRect.h - 20);
         }
 
-        if (state.finish === "matte-black") {
-          ctx.fillStyle = "rgba(0,0,0,0.55)";
+        if (state.finish === "wood-walnut" || state.finish === "wood-warm-walnut") {
+          applyWoodGrain(
+            [[0, "rgba(111,68,38,0.9)"], [0.25, "rgba(88,51,28,0.7)"], [0.55, "rgba(62,35,17,0.58)"], [1, "rgba(43,23,10,0.7)"]],
+            "rgba(28,14,7,0.4)",
+            2,
+            -2,
+            6
+          );
+
+          const warm = ctx.createLinearGradient(doorRect.x + 12, doorRect.y, doorRect.x + doorRect.w * 0.56, doorRect.y);
+          warm.addColorStop(0, "rgba(255, 214, 155, 0.18)");
+          warm.addColorStop(1, "rgba(255, 214, 155, 0)");
+          ctx.fillStyle = warm;
+          ctx.fillRect(doorRect.x + 14, doorRect.y + 10, doorRect.w * 0.52, doorRect.h - 20);
+        }
+
+        if (state.finish === "wood-smoked-walnut") {
+          applyWoodGrain(
+            [[0, "rgba(63,45,33,0.92)"], [0.5, "rgba(87,66,50,0.48)"], [1, "rgba(35,24,17,0.78)"]],
+            "rgba(16,11,8,0.42)",
+            1,
+            -3,
+            6
+          );
+        }
+
+        if (state.finish === "wood-dark-oak") {
+          applyWoodGrain(
+            [[0, "rgba(84,61,41,0.84)"], [0.5, "rgba(113,84,57,0.4)"], [1, "rgba(49,35,23,0.7)"]],
+            "rgba(35,24,16,0.38)",
+            -1,
+            3,
+            7
+          );
+        }
+
+        if (state.finish === "wood-natural-oak") {
+          applyWoodGrain(
+            [[0, "rgba(176,138,91,0.74)"], [0.45, "rgba(202,162,112,0.3)"], [1, "rgba(130,95,58,0.58)"]],
+            "rgba(110,78,44,0.3)",
+            -2,
+            1,
+            8
+          );
+        }
+
+        if (state.finish === "wood-espresso") {
+          applyWoodGrain(
+            [[0, "rgba(54,35,24,0.92)"], [0.55, "rgba(74,48,31,0.42)"], [1, "rgba(34,21,14,0.82)"]],
+            "rgba(15,10,7,0.44)",
+            2,
+            -2,
+            6
+          );
+        }
+
+        if (state.finish === "wood-weathered") {
+          applyWoodGrain(
+            [[0, "rgba(106,99,90,0.88)"], [0.48, "rgba(138,130,119,0.48)"], [1, "rgba(80,74,67,0.8)"]],
+            "rgba(56,53,48,0.32)",
+            1,
+            -2,
+            7
+          );
+        }
+
+        if (state.finish === "matte-black" || state.finish === "matte-graphite") {
+          const matteColor = state.finish === "matte-black" ? "rgba(0,0,0,0.58)" : "rgba(34,40,50,0.52)";
+          ctx.fillStyle = matteColor;
           ctx.fillRect(doorRect.x, doorRect.y, doorRect.w, doorRect.h);
           ctx.fillStyle = "rgba(255,255,255,0.04)";
           for (let i = 0; i < 220; i += 1) {
-            const x = Math.random() * canvas.width;
-            const y = Math.random() * canvas.height;
+            const x = doorRect.x + Math.random() * doorRect.w;
+            const y = doorRect.y + Math.random() * doorRect.h;
             ctx.fillRect(x, y, 1, 1);
           }
         }
@@ -964,37 +969,41 @@
         if (state.finish === "matte-white") {
           ctx.fillStyle = "rgba(255,255,255,0.72)";
           ctx.fillRect(doorRect.x, doorRect.y, doorRect.w, doorRect.h);
-          ctx.fillStyle = "rgba(0,0,0,0.03)";
-          for (let i = 0; i < 220; i += 1) {
-            const x = Math.random() * canvas.width;
-            const y = Math.random() * canvas.height;
-            ctx.fillRect(x, y, 1, 1);
-          }
         }
 
         if (state.finish === "gloss-white") {
           ctx.fillStyle = "rgba(255,255,255,0.84)";
           ctx.fillRect(doorRect.x, doorRect.y, doorRect.w, doorRect.h);
           const glossGrad = ctx.createLinearGradient(doorRect.x, doorRect.y, doorRect.x, doorRect.y + doorRect.h);
-          glossGrad.addColorStop(0, "rgba(255,255,255,0.52)");
-          glossGrad.addColorStop(0.2, "rgba(255,255,255,0.18)");
+          glossGrad.addColorStop(0, "rgba(255,255,255,0.54)");
+          glossGrad.addColorStop(0.2, "rgba(255,255,255,0.2)");
           glossGrad.addColorStop(0.7, "rgba(255,255,255,0.06)");
-          glossGrad.addColorStop(1, "rgba(0,0,0,0.12)");
+          glossGrad.addColorStop(1, "rgba(0,0,0,0.14)");
           ctx.fillStyle = glossGrad;
           ctx.fillRect(doorRect.x, doorRect.y, doorRect.w, doorRect.h);
-
-          ctx.fillStyle = "rgba(255,255,255,0.18)";
-          ctx.fillRect(doorRect.x + 26, doorRect.y + 22, doorRect.w * 0.48, doorRect.h * 0.14);
         }
 
-        if (state.finish === "brushed") {
-          ctx.fillStyle = "rgba(255,255,255,0.09)";
+        if (state.finish === "brushed" || state.finish === "smoked-metal") {
+          const tint = state.finish === "smoked-metal" ? "rgba(112,122,137,0.2)" : "rgba(255,255,255,0.12)";
+          ctx.fillStyle = tint;
           for (let y = doorRect.y; y < doorRect.y + doorRect.h; y += 4) {
             ctx.fillRect(doorRect.x, y, doorRect.w, 1);
           }
-          ctx.fillStyle = "rgba(0,0,0,0.08)";
-          for (let x = doorRect.x; x < doorRect.x + doorRect.w; x += 36) {
+          ctx.fillStyle = "rgba(0,0,0,0.1)";
+          for (let x = doorRect.x; x < doorRect.x + doorRect.w; x += 32) {
             ctx.fillRect(x, doorRect.y, 1, doorRect.h);
+          }
+        }
+
+        if (state.finish === "stone-slate") {
+          ctx.fillStyle = "rgba(126,131,142,0.4)";
+          ctx.fillRect(doorRect.x, doorRect.y, doorRect.w, doorRect.h);
+          ctx.fillStyle = "rgba(255,255,255,0.05)";
+          for (let i = 0; i < 340; i += 1) {
+            const x = doorRect.x + Math.random() * doorRect.w;
+            const y = doorRect.y + Math.random() * doorRect.h;
+            const s = Math.random() * 1.8 + 0.4;
+            ctx.fillRect(x, y, s, s);
           }
         }
 
@@ -1007,10 +1016,10 @@
         }
 
         const edgeShadow = ctx.createLinearGradient(doorRect.x, doorRect.y, doorRect.x + doorRect.w, doorRect.y);
-        edgeShadow.addColorStop(0, "rgba(0,0,0,0.28)");
-        edgeShadow.addColorStop(0.16, "rgba(0,0,0,0.08)");
-        edgeShadow.addColorStop(0.85, "rgba(0,0,0,0.05)");
-        edgeShadow.addColorStop(1, "rgba(0,0,0,0.22)");
+        edgeShadow.addColorStop(0, "rgba(0,0,0,0.32)");
+        edgeShadow.addColorStop(0.16, "rgba(0,0,0,0.1)");
+        edgeShadow.addColorStop(0.85, "rgba(0,0,0,0.06)");
+        edgeShadow.addColorStop(1, "rgba(0,0,0,0.24)");
         ctx.fillStyle = edgeShadow;
         ctx.fillRect(doorRect.x, doorRect.y, doorRect.w, doorRect.h);
 
@@ -1035,35 +1044,29 @@
 
         ctx.restore();
 
-        ctx.strokeStyle = "rgba(11,16,24,0.7)";
+        ctx.strokeStyle = "rgba(10,15,22,0.7)";
         ctx.lineWidth = 2;
         ctx.strokeRect(doorRect.x, doorRect.y, doorRect.w, doorRect.h);
 
-        const floorShadow = ctx.createRadialGradient(
-          doorRect.x + doorRect.w / 2,
-          doorRect.y + doorRect.h + 8,
-          25,
-          doorRect.x + doorRect.w / 2,
-          doorRect.y + doorRect.h + 8,
-          190
-        );
-        floorShadow.addColorStop(0, "rgba(0,0,0,0.46)");
+        const floorShadow = ctx.createRadialGradient(doorRect.x + doorRect.w / 2, doorRect.y + doorRect.h + 10, 30, doorRect.x + doorRect.w / 2, doorRect.y + doorRect.h + 10, 200);
+        floorShadow.addColorStop(0, "rgba(0,0,0,0.5)");
         floorShadow.addColorStop(1, "rgba(0,0,0,0)");
         ctx.fillStyle = floorShadow;
-        ctx.fillRect(doorRect.x - 46, doorRect.y + doorRect.h - 8, doorRect.w + 90, 76);
+        ctx.fillRect(doorRect.x - 46, doorRect.y + doorRect.h - 8, doorRect.w + 90, 82);
 
-        ctx.fillStyle = "#c5cbd6";
+        ctx.fillStyle = "#c6ccd6";
         ctx.fillRect(doorRect.x + doorRect.w - 25, doorRect.y + doorRect.h / 2 - 28, 8, 56);
 
         ctx.beginPath();
         ctx.arc(doorRect.x + doorRect.w - 20, doorRect.y + doorRect.h / 2 - 34, 9, 0, Math.PI * 2);
-        ctx.fillStyle = "#a4adbc";
+        ctx.fillStyle = "#a8b1c0";
         ctx.fill();
       }
 
       function setStateAndRender(partial) {
         Object.assign(state, partial);
         setActiveSwatch();
+        syncFinishCards();
         drawScene();
       }
 
@@ -1117,11 +1120,14 @@
         artworkInput.value = "";
 
         setActiveSwatch();
+        syncFinishCards();
         drawScene();
       });
 
+      buildFinishCards();
       document.getElementById("year").textContent = new Date().getFullYear();
       setActiveSwatch();
+      syncFinishCards();
       drawScene();
     })();
   </script>
