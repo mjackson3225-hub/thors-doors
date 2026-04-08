@@ -307,16 +307,31 @@
       gap: 8px;
     }
 
+    .swatch-wrap {
+      display: grid;
+      gap: 6px;
+      justify-items: center;
+    }
+
     .swatch {
       border: 2px solid #fff;
       border-radius: 8px;
       aspect-ratio: 1 / 1;
       box-shadow: 0 0 0 1px #ccd6e8;
       cursor: pointer;
+      width: 100%;
     }
 
     .swatch.active {
       box-shadow: 0 0 0 2px var(--orange);
+    }
+
+    .swatch-label {
+      font-size: 0.78rem;
+      line-height: 1.2;
+      color: #4a566f;
+      font-weight: 600;
+      text-align: center;
     }
 
     .field {
@@ -538,11 +553,26 @@
               <div class="control-group">
                 <h3>Color Presets</h3>
                 <div class="preset-row" id="presetRow">
-                  <button class="swatch" type="button" data-color="#283B62" style="background:#283B62" aria-label="Navy"></button>
-                  <button class="swatch" type="button" data-color="#ED930E" style="background:#ED930E" aria-label="Orange"></button>
-                  <button class="swatch" type="button" data-color="#C5CDD9" style="background:#C5CDD9" aria-label="Silver"></button>
-                  <button class="swatch" type="button" data-color="#2E5143" style="background:#2E5143" aria-label="Forest"></button>
-                  <button class="swatch" type="button" data-color="#3B3A39" style="background:#3B3A39" aria-label="Graphite"></button>
+                  <div class="swatch-wrap">
+                    <button class="swatch" type="button" data-color="#283B62" style="background:#283B62" aria-label="Navy"></button>
+                    <span class="swatch-label">Navy</span>
+                  </div>
+                  <div class="swatch-wrap">
+                    <button class="swatch" type="button" data-color="#ED930E" style="background:#ED930E" aria-label="Orange"></button>
+                    <span class="swatch-label">Orange</span>
+                  </div>
+                  <div class="swatch-wrap">
+                    <button class="swatch" type="button" data-color="#C5CDD9" style="background:#C5CDD9" aria-label="Light Gray"></button>
+                    <span class="swatch-label">Light Gray</span>
+                  </div>
+                  <div class="swatch-wrap">
+                    <button class="swatch" type="button" data-color="#2E5143" style="background:#2E5143" aria-label="Forest Green"></button>
+                    <span class="swatch-label">Forest Green</span>
+                  </div>
+                  <div class="swatch-wrap">
+                    <button class="swatch" type="button" data-color="#3B3A39" style="background:#3B3A39" aria-label="Charcoal"></button>
+                    <span class="swatch-label">Charcoal</span>
+                  </div>
                 </div>
               </div>
 
@@ -559,10 +589,13 @@
               <div class="field">
                 <label for="finish">Finish</label>
                 <select id="finish">
-                  <option value="matte">Matte</option>
-                  <option value="satin">Satin</option>
-                  <option value="gloss">Gloss</option>
+                  <option value="wood-oak">Wood Grain – Oak</option>
+                  <option value="wood-walnut">Wood Grain – Walnut</option>
+                  <option value="matte-black">Matte Black</option>
+                  <option value="matte-white">Matte White</option>
+                  <option value="gloss-white">Gloss White</option>
                   <option value="brushed">Brushed Metal</option>
+                  <option value="custom-print">Custom Print</option>
                 </select>
               </div>
 
@@ -636,9 +669,9 @@
       const presetButtons = Array.from(document.querySelectorAll(".swatch"));
 
       const initialState = {
-        color: "#283B62",
+        color: "#B98A53",
         brightness: 100,
-        finish: "matte",
+        finish: "wood-oak",
         artwork: null
       };
 
@@ -648,6 +681,8 @@
         finish: initialState.finish,
         artwork: initialState.artwork
       };
+
+      doorColorInput.value = initialState.color;
 
       const doorRect = {
         x: 210,
@@ -708,7 +743,57 @@
         ctx.rect(doorRect.x, doorRect.y, doorRect.w, doorRect.h);
         ctx.clip();
 
-        if (state.finish === "matte") {
+        if (state.finish === "wood-oak") {
+          const oakBase = ctx.createLinearGradient(doorRect.x, doorRect.y, doorRect.x + doorRect.w, doorRect.y + doorRect.h);
+          oakBase.addColorStop(0, "rgba(191, 146, 87, 0.65)");
+          oakBase.addColorStop(0.45, "rgba(159, 114, 62, 0.32)");
+          oakBase.addColorStop(1, "rgba(109, 75, 38, 0.45)");
+          ctx.fillStyle = oakBase;
+          ctx.fillRect(doorRect.x, doorRect.y, doorRect.w, doorRect.h);
+
+          ctx.strokeStyle = "rgba(106, 73, 35, 0.26)";
+          for (let y = doorRect.y + 4; y < doorRect.y + doorRect.h; y += 7) {
+            ctx.beginPath();
+            ctx.moveTo(doorRect.x, y);
+            ctx.bezierCurveTo(
+              doorRect.x + doorRect.w * 0.3,
+              y - 2,
+              doorRect.x + doorRect.w * 0.65,
+              y + 2,
+              doorRect.x + doorRect.w,
+              y
+            );
+            ctx.stroke();
+          }
+        }
+
+        if (state.finish === "wood-walnut") {
+          const walnutBase = ctx.createLinearGradient(doorRect.x, doorRect.y, doorRect.x + doorRect.w, doorRect.y + doorRect.h);
+          walnutBase.addColorStop(0, "rgba(112, 72, 41, 0.7)");
+          walnutBase.addColorStop(0.5, "rgba(73, 44, 24, 0.38)");
+          walnutBase.addColorStop(1, "rgba(54, 31, 16, 0.5)");
+          ctx.fillStyle = walnutBase;
+          ctx.fillRect(doorRect.x, doorRect.y, doorRect.w, doorRect.h);
+
+          ctx.strokeStyle = "rgba(40, 23, 11, 0.34)";
+          for (let y = doorRect.y + 5; y < doorRect.y + doorRect.h; y += 8) {
+            ctx.beginPath();
+            ctx.moveTo(doorRect.x, y);
+            ctx.bezierCurveTo(
+              doorRect.x + doorRect.w * 0.22,
+              y + 1,
+              doorRect.x + doorRect.w * 0.74,
+              y - 2,
+              doorRect.x + doorRect.w,
+              y
+            );
+            ctx.stroke();
+          }
+        }
+
+        if (state.finish === "matte-black") {
+          ctx.fillStyle = "rgba(0,0,0,0.55)";
+          ctx.fillRect(doorRect.x, doorRect.y, doorRect.w, doorRect.h);
           ctx.fillStyle = "rgba(255,255,255,0.04)";
           for (let i = 0; i < 220; i += 1) {
             const x = Math.random() * canvas.width;
@@ -717,20 +802,24 @@
           }
         }
 
-        if (state.finish === "satin") {
-          const satinGrad = ctx.createLinearGradient(doorRect.x, doorRect.y, doorRect.x + doorRect.w, doorRect.y + doorRect.h);
-          satinGrad.addColorStop(0, "rgba(255,255,255,0.16)");
-          satinGrad.addColorStop(0.5, "rgba(255,255,255,0.03)");
-          satinGrad.addColorStop(1, "rgba(0,0,0,0.08)");
-          ctx.fillStyle = satinGrad;
+        if (state.finish === "matte-white") {
+          ctx.fillStyle = "rgba(255,255,255,0.72)";
           ctx.fillRect(doorRect.x, doorRect.y, doorRect.w, doorRect.h);
+          ctx.fillStyle = "rgba(0,0,0,0.03)";
+          for (let i = 0; i < 220; i += 1) {
+            const x = Math.random() * canvas.width;
+            const y = Math.random() * canvas.height;
+            ctx.fillRect(x, y, 1, 1);
+          }
         }
 
-        if (state.finish === "gloss") {
+        if (state.finish === "gloss-white") {
+          ctx.fillStyle = "rgba(255,255,255,0.84)";
+          ctx.fillRect(doorRect.x, doorRect.y, doorRect.w, doorRect.h);
           const glossGrad = ctx.createLinearGradient(doorRect.x, doorRect.y, doorRect.x, doorRect.y + doorRect.h);
-          glossGrad.addColorStop(0, "rgba(255,255,255,0.38)");
-          glossGrad.addColorStop(0.2, "rgba(255,255,255,0.08)");
-          glossGrad.addColorStop(0.7, "rgba(255,255,255,0.02)");
+          glossGrad.addColorStop(0, "rgba(255,255,255,0.52)");
+          glossGrad.addColorStop(0.2, "rgba(255,255,255,0.18)");
+          glossGrad.addColorStop(0.7, "rgba(255,255,255,0.06)");
           glossGrad.addColorStop(1, "rgba(0,0,0,0.12)");
           ctx.fillStyle = glossGrad;
           ctx.fillRect(doorRect.x, doorRect.y, doorRect.w, doorRect.h);
@@ -748,6 +837,14 @@
           for (let x = doorRect.x; x < doorRect.x + doorRect.w; x += 36) {
             ctx.fillRect(x, doorRect.y, 1, doorRect.h);
           }
+        }
+
+        if (state.finish === "custom-print") {
+          const printGrad = ctx.createLinearGradient(doorRect.x, doorRect.y, doorRect.x + doorRect.w, doorRect.y + doorRect.h);
+          printGrad.addColorStop(0, "rgba(255,255,255,0.14)");
+          printGrad.addColorStop(1, "rgba(0,0,0,0.14)");
+          ctx.fillStyle = printGrad;
+          ctx.fillRect(doorRect.x, doorRect.y, doorRect.w, doorRect.h);
         }
 
         if (state.artwork) {
