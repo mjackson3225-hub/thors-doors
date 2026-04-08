@@ -10,15 +10,15 @@
   />
   <style>
     :root {
-      --navy: #283b62;
-      --orange: #ed930e;
+      --navy: #1a202d;
+      --orange: #8e6a3a;
       --white: #ffffff;
-      --ink: #1b2438;
-      --muted: #697082;
-      --panel: #f4f6fa;
-      --line: #dce3ef;
-      --shadow: 0 12px 30px rgba(18, 31, 56, 0.14);
-      --radius: 12px;
+      --ink: #e2e5eb;
+      --muted: #9ca3b3;
+      --panel: #161b24;
+      --line: #2b313f;
+      --shadow: 0 18px 36px rgba(0, 0, 0, 0.42);
+      --radius: 8px;
     }
 
     * {
@@ -34,8 +34,11 @@
     body {
       font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
       color: var(--ink);
-      background: #fff;
+      background:
+        radial-gradient(circle at 85% 0%, rgba(115, 84, 48, 0.08) 0%, rgba(15, 18, 25, 0) 36%),
+        linear-gradient(180deg, #11151d 0%, #0e1219 100%);
       line-height: 1.5;
+      letter-spacing: 0.01em;
     }
 
     a {
@@ -54,11 +57,12 @@
     }
 
     .site-header {
-      background: var(--navy);
-      border-bottom: 3px solid var(--orange);
+      background: rgba(14, 18, 25, 0.9);
+      border-bottom: 1px solid rgba(162, 128, 80, 0.35);
       position: sticky;
       top: 0;
       z-index: 40;
+      backdrop-filter: blur(10px);
     }
 
     .nav {
@@ -84,10 +88,11 @@
     }
 
     .main-site-link {
-      color: rgba(255, 255, 255, 0.92);
+      color: rgba(226, 229, 235, 0.84);
       font-size: 0.92rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
     }
 
     .main-site-link:hover {
@@ -98,48 +103,55 @@
 
     .btn {
       border: none;
-      border-radius: 8px;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      padding: 12px 18px;
+      border-radius: 4px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 12px 16px;
       cursor: pointer;
       transition: transform 0.14s ease, box-shadow 0.14s ease, background 0.14s ease;
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      font-size: 0.78rem;
     }
 
     .btn:focus-visible,
     input:focus-visible,
     select:focus-visible,
     textarea:focus-visible {
-      outline: 3px solid rgba(237, 147, 14, 0.35);
+      outline: 2px solid rgba(163, 129, 81, 0.48);
       outline-offset: 2px;
     }
 
     .btn-primary {
-      background: var(--orange);
-      color: #fff;
-      box-shadow: 0 6px 16px rgba(237, 147, 14, 0.36);
+      background: linear-gradient(180deg, #9f7a44 0%, #7b5d34 100%);
+      color: #f6f1e7;
+      border: 1px solid rgba(204, 174, 132, 0.28);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     }
 
     .btn-primary:hover {
-      background: #d7840c;
+      background: linear-gradient(180deg, #ac8550 0%, #81633c 100%);
       transform: translateY(-1px);
     }
 
     .btn-secondary {
-      background: var(--navy);
-      color: #fff;
+      background: linear-gradient(180deg, #272f3f 0%, #1a212e 100%);
+      color: #dce1eb;
+      border: 1px solid rgba(168, 177, 195, 0.2);
     }
 
     .btn-secondary:hover {
-      background: #1e2f4f;
+      background: linear-gradient(180deg, #303a4c 0%, #1f2735 100%);
     }
 
     .hero {
-      background: linear-gradient(135deg, #f8fafc 0%, #eef2f8 100%);
-      padding: 56px 0 44px;
+      background:
+        radial-gradient(circle at 74% 22%, rgba(149, 108, 58, 0.14) 0%, rgba(11, 14, 20, 0) 42%),
+        linear-gradient(180deg, #151b25 0%, #10151d 70%, #0d1219 100%);
+      padding: 62px 0 54px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .hero-grid {
@@ -150,7 +162,7 @@
     }
 
     .eyebrow {
-      color: var(--orange);
+      color: #b7905d;
       font-weight: 800;
       font-size: 0.78rem;
       text-transform: uppercase;
@@ -161,13 +173,13 @@
     h1 {
       font-size: clamp(2rem, 4.5vw, 3.5rem);
       line-height: 1.05;
-      color: var(--navy);
+      color: #f0f2f6;
       margin-bottom: 14px;
       letter-spacing: 0.01em;
     }
 
     .hero-copy p {
-      color: #43506a;
+      color: #aab2c1;
       max-width: 54ch;
       margin-bottom: 24px;
       font-size: 1.03rem;
@@ -180,11 +192,11 @@
     }
 
     .ba-card {
-      background: #fff;
+      background: linear-gradient(180deg, #1b202a 0%, #11161f 100%);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow: hidden;
-      border: 1px solid var(--line);
+      border: 1px solid #343d4f;
     }
 
     .ba-top {
@@ -215,21 +227,23 @@
       text-transform: uppercase;
       color: #fff;
       padding: 6px 8px;
-      border-radius: 6px;
-      background: rgba(40, 59, 98, 0.88);
+      border-radius: 3px;
+      background: rgba(13, 18, 26, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .ba-pane.after .ba-label {
-      background: rgba(237, 147, 14, 0.93);
-      color: #16233e;
+      background: rgba(142, 106, 58, 0.88);
+      color: #f0e7d8;
+      border-color: rgba(219, 190, 152, 0.35);
     }
 
     .ba-footer {
-      border-top: 1px solid var(--line);
+      border-top: 1px solid #2f3746;
       padding: 14px 16px;
       font-size: 0.95rem;
-      color: #4e5870;
-      background: #fff;
+      color: #b0b8c6;
+      background: #131822;
     }
 
     .section {
@@ -237,32 +251,52 @@
     }
 
     #configurator.section {
-      background: radial-gradient(circle at 15% 15%, #324c80 0%, #1f2e4b 36%, #141c2f 100%);
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      background: linear-gradient(180deg, #070d1c 0%, #050a16 100%);
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      padding-top: 0;
+    }
+
+    #configurator .container {
+      width: min(100%, 100vw);
+      margin: 0;
     }
 
     .section-head {
-      margin-bottom: 26px;
+      margin-bottom: 0;
+      border-bottom: 1px solid rgba(238, 170, 64, 0.18);
+      background: linear-gradient(90deg, #0f1526 0%, #111a2c 55%, #11192a 100%);
+      padding: 8px 20px 10px;
     }
 
     #configurator .section-head h2 {
-      color: #ffffff;
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
-      margin-bottom: 8px;
+      color: #f6a82d;
+      font-size: 0.98rem;
+      margin-bottom: 2px;
       line-height: 1.1;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    #configurator .section-head h2::before {
+      content: "• ";
     }
 
     #configurator .section-head p {
-      color: rgba(255, 255, 255, 0.78);
+      color: rgba(213, 220, 234, 0.62);
       max-width: 70ch;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
 
     .config-wrap {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 24px;
-      align-items: start;
+      grid-template-columns: 1fr 314px;
+      gap: 0;
+      align-items: stretch;
+      min-height: 640px;
     }
 
     .card {
@@ -273,90 +307,167 @@
     }
 
     #configurator .card {
-      background: linear-gradient(180deg, rgba(18, 27, 46, 0.98) 0%, rgba(15, 21, 35, 0.99) 100%);
-      border: 1px solid rgba(124, 142, 175, 0.25);
-      box-shadow: 0 22px 40px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      background: #070d1c;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
     }
 
     .preview-card {
-      padding: 18px;
+      padding: 0;
+      position: relative;
+    }
+
+    .preview-card::before {
+      content: "Live Preview";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      border-bottom: 1px solid rgba(238, 170, 64, 0.16);
+      color: #f5a934;
+      font-size: 0.66rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 7px 10px;
+      z-index: 2;
+      background: rgba(2, 7, 16, 0.72);
+    }
+
+    .preview-meta {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(211, 220, 238, 0.72);
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .preview-meta .meta-chip {
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: #6e4a2d;
     }
 
     .canvas-frame {
-      background: radial-gradient(circle at 50% 30%, #2f446f 0%, #1c2944 40%, #11192a 100%);
-      border-radius: 10px;
-      border: 1px solid rgba(129, 148, 185, 0.32);
-      padding: 16px;
-      box-shadow: inset 0 12px 30px rgba(5, 9, 16, 0.5);
+      background: radial-gradient(circle at 50% 52%, rgba(12, 21, 45, 0.65) 0%, #020819 72%);
+      border-radius: 0;
+      border: 0;
+      padding: 40px 32px 24px;
+      box-shadow: inset 0 28px 60px rgba(0, 0, 0, 0.5);
+      min-height: 640px;
+      display: grid;
+      place-items: center;
     }
 
     canvas {
       width: 100%;
-      max-width: 640px;
+      max-width: 760px;
       display: block;
       margin: 0 auto;
       background: transparent;
-      border-radius: 8px;
-      box-shadow: 0 16px 28px rgba(0, 0, 0, 0.45);
+      border-radius: 0;
+      box-shadow: none;
     }
 
     .controls-card {
-      padding: 18px;
+      padding: 16px 12px;
+      border-left: 1px solid rgba(82, 99, 132, 0.45);
+      background: linear-gradient(180deg, #1a2237 0%, #171f32 100%);
     }
 
     .controls-grid {
       display: grid;
-      gap: 16px;
+      gap: 14px;
+    }
+
+    .control-group,
+    .field,
+    .control-actions {
+      background: linear-gradient(180deg, rgba(31, 38, 52, 0.7) 0%, rgba(20, 26, 37, 0.76) 100%);
+      border: 1px solid rgba(124, 137, 159, 0.22);
+      border-radius: 0;
+      padding: 10px 8px;
     }
 
     .control-group h3 {
-      font-size: 0.96rem;
+      font-size: 1rem;
       color: #ffffff;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      font-family: "Georgia", serif;
+    }
+
+    .control-group[data-step] h3::before {
+      content: attr(data-step);
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #f0a521;
+      color: #fff;
+      display: inline-grid;
+      place-items: center;
+      margin-right: 8px;
+      font-size: 0.62rem;
+      font-family: "Inter", sans-serif;
     }
 
     .preset-row {
       display: grid;
-      grid-template-columns: repeat(5, minmax(40px, 1fr));
-      gap: 8px;
+      grid-template-columns: repeat(5, minmax(30px, 1fr));
+      gap: 4px;
     }
 
     .swatch-wrap {
       display: grid;
-      gap: 6px;
+      gap: 3px;
       justify-items: center;
     }
 
     .swatch {
-      border: 2px solid #fff;
-      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 2px;
       aspect-ratio: 1 / 1;
-      box-shadow: 0 0 0 1px #ccd6e8;
+      box-shadow: 0 0 0 1px rgba(14, 21, 36, 0.95);
       cursor: pointer;
       width: 100%;
     }
 
     .swatch.active {
-      box-shadow: 0 0 0 2px var(--orange);
+      box-shadow:
+        0 0 0 1px rgba(223, 200, 163, 0.22),
+        0 0 0 2px rgba(158, 122, 74, 0.95),
+        inset 0 10px 18px rgba(255, 255, 255, 0.08);
     }
 
     .swatch-label {
-      font-size: 0.78rem;
+      font-size: 0.62rem;
       line-height: 1.2;
-      color: rgba(255, 255, 255, 0.88);
-      font-weight: 600;
+      color: rgba(214, 221, 232, 0.86);
+      font-weight: 500;
       text-align: center;
     }
 
     .field {
       display: grid;
-      gap: 6px;
+      gap: 7px;
     }
 
     .field label {
-      color: rgba(255, 255, 255, 0.88);
-      font-weight: 600;
-      font-size: 0.9rem;
+      color: rgba(215, 222, 234, 0.88);
+      font-weight: 500;
+      font-size: 0.79rem;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
     }
 
     input[type="color"],
@@ -370,16 +481,15 @@
     }
 
     input[type="color"] {
-      height: 42px;
-      border: 1px solid rgba(166, 183, 215, 0.45);
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.08);
-      padding: 2px;
-      cursor: pointer;
+      position: absolute;
+      opacity: 0;
+      width: 1px;
+      height: 1px;
+      pointer-events: none;
     }
 
     input[type="range"] {
-      accent-color: var(--orange);
+      accent-color: #90704b;
       cursor: pointer;
     }
 
@@ -401,32 +511,32 @@
     #configurator input[type="text"],
     #configurator input[type="email"],
     #configurator textarea {
-      border: 1px solid rgba(166, 183, 215, 0.38);
-      border-radius: 8px;
+      border: 1px solid rgba(166, 183, 215, 0.34);
+      border-radius: 4px;
       padding: 10px 12px;
       font: inherit;
       color: #eef2fb;
-      background: rgba(15, 24, 41, 0.86);
+      background: rgba(12, 18, 27, 0.95);
     }
 
     #configurator input[type="file"]::file-selector-button {
-      background: var(--orange);
+      background: linear-gradient(180deg, #9c7645 0%, #795a34 100%);
       border: none;
-      color: #fff;
+      color: #f8f1e5;
       padding: 7px 10px;
-      border-radius: 6px;
+      border-radius: 3px;
       margin-right: 10px;
       font-weight: 700;
       cursor: pointer;
     }
 
     #configurator .btn-secondary {
-      background: #1c2c4a;
-      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: linear-gradient(180deg, #2a3345 0%, #1e2736 100%);
+      border: 1px solid rgba(171, 182, 200, 0.2);
     }
 
     #configurator .btn-secondary:hover {
-      background: #253a61;
+      background: linear-gradient(180deg, #323f55 0%, #232e40 100%);
     }
 
     .control-actions {
@@ -435,12 +545,72 @@
       flex-wrap: wrap;
     }
 
+    .wheel-wrap {
+      display: grid;
+      gap: 10px;
+      justify-items: center;
+      margin-top: 6px;
+    }
+
+    #colorWheel {
+      width: 144px;
+      height: 144px;
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.06);
+      cursor: crosshair;
+    }
+
+    .brightness-label {
+      color: rgba(228, 233, 244, 0.72);
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      justify-self: start;
+    }
+
+    .hex-row {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 18px 1fr auto;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(144, 158, 182, 0.3);
+      background: rgba(8, 13, 24, 0.8);
+      padding: 6px 8px;
+      border-radius: 3px;
+    }
+
+    .hex-chip {
+      width: 18px;
+      height: 18px;
+      border-radius: 3px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .hex-value {
+      font-weight: 700;
+      color: #f9fcff;
+      font-size: 0.88rem;
+      letter-spacing: 0.04em;
+    }
+
+    .copy-btn {
+      border: 1px solid rgba(118, 132, 157, 0.45);
+      background: rgba(25, 35, 58, 0.72);
+      color: #aeb9cf;
+      font-size: 0.58rem;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      letter-spacing: 0.09em;
+      cursor: pointer;
+    }
+
     .materials {
-      margin-top: 32px;
+      margin-top: 30px;
       border-radius: var(--radius);
       overflow: hidden;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
+      border: 1px solid #353e4e;
+      box-shadow: 0 20px 36px rgba(0, 0, 0, 0.45);
     }
 
     .materials img {
@@ -449,9 +619,10 @@
     }
 
     .cta {
-      background: var(--navy);
+      background: linear-gradient(180deg, #121822 0%, #0c1118 100%);
       color: #fff;
       padding: 68px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .cta-grid {
@@ -468,21 +639,46 @@
     }
 
     .cta p {
-      color: rgba(255, 255, 255, 0.88);
+      color: rgba(218, 224, 234, 0.88);
       max-width: 46ch;
     }
 
     .form-card {
-      background: #fff;
+      background: linear-gradient(180deg, #1a202c 0%, #131a24 100%);
       border-radius: var(--radius);
-      border: 1px solid rgba(255, 255, 255, 0.22);
+      border: 1px solid rgba(162, 174, 195, 0.28);
       padding: 18px;
-      color: var(--ink);
+      color: #eef3fa;
     }
 
     .form-grid {
       display: grid;
       gap: 12px;
+    }
+
+    .form-card .field {
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      padding: 0;
+    }
+
+    .form-card label {
+      color: rgba(219, 226, 236, 0.92);
+    }
+
+    .form-card input[type="text"],
+    .form-card input[type="email"],
+    .form-card textarea {
+      border: 1px solid rgba(166, 183, 215, 0.32);
+      border-radius: 4px;
+      color: #eef3fa;
+      background: rgba(12, 18, 27, 0.92);
+    }
+
+    .form-card input::placeholder,
+    .form-card textarea::placeholder {
+      color: rgba(203, 210, 223, 0.6);
     }
 
     textarea {
@@ -491,11 +687,12 @@
     }
 
     footer {
-      background: #15213a;
+      background: #090d13;
       color: rgba(255, 255, 255, 0.85);
       padding: 18px 0;
       text-align: center;
       font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
     }
 
     @media (max-width: 980px) {
@@ -582,14 +779,12 @@
       <div class="container">
         <div class="section-head">
           <h2>Live Door Configurator</h2>
-          <p>
-            Build your look in real time. Choose a color preset, fine-tune hue with the color wheel, adjust brightness, select a finish,
-            upload custom artwork, and reset with one click.
-          </p>
+          <p>Live Preview</p>
         </div>
 
         <div class="config-wrap">
           <article class="card preview-card">
+            <div class="preview-meta"><span class="meta-chip" id="previewMetaChip"></span><span id="previewMetaText">#6E4A2D | Wood Grain</span></div>
             <div class="canvas-frame">
               <canvas id="doorCanvas" width="760" height="520" aria-label="Live door preview"></canvas>
             </div>
@@ -597,8 +792,8 @@
 
           <aside class="card controls-card" aria-label="Door configurator controls">
             <div class="controls-grid">
-              <div class="control-group">
-                <h3>Color Presets</h3>
+              <div class="control-group" data-step="1">
+                <h3>Color / Tone</h3>
                 <div class="preset-row" id="presetRow">
                   <div class="swatch-wrap">
                     <button class="swatch" type="button" data-color="#283B62" style="background:#283B62" aria-label="Navy"></button>
@@ -620,20 +815,42 @@
                     <button class="swatch" type="button" data-color="#3B3A39" style="background:#3B3A39" aria-label="Charcoal"></button>
                     <span class="swatch-label">Charcoal</span>
                   </div>
+                  <div class="swatch-wrap">
+                    <button class="swatch" type="button" data-color="#D8D4CB" style="background:#D8D4CB" aria-label="Linen"></button>
+                    <span class="swatch-label">Linen</span>
+                  </div>
+                  <div class="swatch-wrap">
+                    <button class="swatch" type="button" data-color="#3D0C1F" style="background:#3D0C1F" aria-label="Merlot"></button>
+                    <span class="swatch-label">Merlot</span>
+                  </div>
+                  <div class="swatch-wrap">
+                    <button class="swatch" type="button" data-color="#113628" style="background:#113628" aria-label="Emerald"></button>
+                    <span class="swatch-label">Emerald</span>
+                  </div>
+                  <div class="swatch-wrap">
+                    <button class="swatch" type="button" data-color="#D69015" style="background:#D69015" aria-label="Amber"></button>
+                    <span class="swatch-label">Amber</span>
+                  </div>
+                  <div class="swatch-wrap">
+                    <button class="swatch" type="button" data-color="#CFA228" style="background:#CFA228" aria-label="Brass"></button>
+                    <span class="swatch-label">Brass</span>
+                  </div>
+                </div>
+                <input id="doorColor" type="color" value="#283B62" />
+                <div class="wheel-wrap">
+                  <canvas id="colorWheel" width="180" height="180" aria-label="Color wheel"></canvas>
+                  <label class="brightness-label" for="brightness">Brightness</label>
+                  <input id="brightness" type="range" min="65" max="130" value="100" />
+                  <div class="hex-row">
+                    <span class="hex-chip" id="hexChip"></span>
+                    <span class="hex-value" id="hexValue">#000000</span>
+                    <button class="copy-btn" id="copyHex" type="button">Copy</button>
+                  </div>
                 </div>
               </div>
 
-              <div class="field">
-                <label for="doorColor">Color Wheel</label>
-                <input id="doorColor" type="color" value="#283B62" />
-              </div>
-
-              <div class="field">
-                <label for="brightness">Brightness</label>
-                <input id="brightness" type="range" min="65" max="130" value="100" />
-              </div>
-
-              <div class="field">
+              <div class="field control-group" data-step="2">
+                <h3>Material Finish</h3>
                 <label for="finish">Finish</label>
                 <select id="finish">
                   <option value="wood-oak">Wood Grain – Oak</option>
@@ -646,7 +863,8 @@
                 </select>
               </div>
 
-              <div class="field">
+              <div class="field control-group" data-step="3">
+                <h3>Custom Print / Logo</h3>
                 <label for="artwork">Artwork Upload</label>
                 <input id="artwork" type="file" accept="image/*" />
               </div>
@@ -714,6 +932,13 @@
       const artworkInput = document.getElementById("artwork");
       const resetButton = document.getElementById("resetConfig");
       const presetButtons = Array.from(document.querySelectorAll(".swatch"));
+      const colorWheel = document.getElementById("colorWheel");
+      const wheelCtx = colorWheel.getContext("2d");
+      const hexValue = document.getElementById("hexValue");
+      const hexChip = document.getElementById("hexChip");
+      const copyHex = document.getElementById("copyHex");
+      const previewMetaText = document.getElementById("previewMetaText");
+      const previewMetaChip = document.getElementById("previewMetaChip");
 
       const initialState = {
         color: "#6E4A2D",
@@ -738,6 +963,11 @@
         h: 410
       };
 
+      const wheelState = {
+        h: 24,
+        s: 0.75
+      };
+
       function hexToRgb(hex) {
         const cleanHex = hex.replace("#", "");
         const bigint = parseInt(cleanHex, 16);
@@ -757,6 +987,104 @@
         return `rgb(${r}, ${g}, ${b})`;
       }
 
+      function rgbToHex(r, g, b) {
+        return `#${[r, g, b].map((v) => v.toString(16).padStart(2, "0")).join("").toUpperCase()}`;
+      }
+
+      function hsvToHex(h, s, v) {
+        const c = v * s;
+        const x = c * (1 - Math.abs(((h / 60) % 2) - 1));
+        const m = v - c;
+        let rPrime = 0;
+        let gPrime = 0;
+        let bPrime = 0;
+
+        if (h < 60) [rPrime, gPrime, bPrime] = [c, x, 0];
+        else if (h < 120) [rPrime, gPrime, bPrime] = [x, c, 0];
+        else if (h < 180) [rPrime, gPrime, bPrime] = [0, c, x];
+        else if (h < 240) [rPrime, gPrime, bPrime] = [0, x, c];
+        else if (h < 300) [rPrime, gPrime, bPrime] = [x, 0, c];
+        else [rPrime, gPrime, bPrime] = [c, 0, x];
+
+        const r = Math.round((rPrime + m) * 255);
+        const g = Math.round((gPrime + m) * 255);
+        const b = Math.round((bPrime + m) * 255);
+        return rgbToHex(r, g, b);
+      }
+
+      function hexToHsv(hex) {
+        const { r, g, b } = hexToRgb(hex);
+        const rNorm = r / 255;
+        const gNorm = g / 255;
+        const bNorm = b / 255;
+        const max = Math.max(rNorm, gNorm, bNorm);
+        const min = Math.min(rNorm, gNorm, bNorm);
+        const d = max - min;
+        let h = 0;
+        if (d !== 0) {
+          if (max === rNorm) h = ((gNorm - bNorm) / d) % 6;
+          else if (max === gNorm) h = (bNorm - rNorm) / d + 2;
+          else h = (rNorm - gNorm) / d + 4;
+          h *= 60;
+          if (h < 0) h += 360;
+        }
+        const s = max === 0 ? 0 : d / max;
+        return { h, s };
+      }
+
+      function drawColorWheel() {
+        const radius = colorWheel.width / 2;
+        const image = wheelCtx.createImageData(colorWheel.width, colorWheel.height);
+        const data = image.data;
+
+        for (let y = 0; y < colorWheel.height; y += 1) {
+          for (let x = 0; x < colorWheel.width; x += 1) {
+            const dx = x - radius;
+            const dy = y - radius;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            const idx = (y * colorWheel.width + x) * 4;
+            if (distance > radius) {
+              data[idx + 3] = 0;
+              continue;
+            }
+            const sat = distance / radius;
+            let hue = Math.atan2(dy, dx) * (180 / Math.PI);
+            if (hue < 0) hue += 360;
+            const hex = hsvToHex(hue, sat, 1);
+            const rgb = hexToRgb(hex);
+            data[idx] = rgb.r;
+            data[idx + 1] = rgb.g;
+            data[idx + 2] = rgb.b;
+            data[idx + 3] = 255;
+          }
+        }
+
+        wheelCtx.putImageData(image, 0, 0);
+
+        const markerRadius = wheelState.s * radius;
+        const angle = (wheelState.h * Math.PI) / 180;
+        const markerX = radius + Math.cos(angle) * markerRadius;
+        const markerY = radius + Math.sin(angle) * markerRadius;
+        wheelCtx.beginPath();
+        wheelCtx.arc(markerX, markerY, 6, 0, Math.PI * 2);
+        wheelCtx.strokeStyle = "#ffffff";
+        wheelCtx.lineWidth = 2;
+        wheelCtx.stroke();
+        wheelCtx.beginPath();
+        wheelCtx.arc(markerX, markerY, 4, 0, Math.PI * 2);
+        wheelCtx.strokeStyle = "#0f1422";
+        wheelCtx.lineWidth = 2;
+        wheelCtx.stroke();
+      }
+
+      function updateHexUI() {
+        hexValue.textContent = state.color.toUpperCase();
+        hexChip.style.background = state.color;
+        previewMetaChip.style.background = state.color;
+        const finishName = finishSelect.options[finishSelect.selectedIndex].text.split("–")[0].trim();
+        previewMetaText.textContent = `${state.color.toUpperCase()} | ${finishName}`;
+      }
+
       function setActiveSwatch() {
         presetButtons.forEach((button) => {
           const isActive = button.dataset.color.toLowerCase() === state.color.toLowerCase();
@@ -768,13 +1096,22 @@
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         const wallGradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-        wallGradient.addColorStop(0, "#222f4c");
-        wallGradient.addColorStop(0.55, "#172238");
-        wallGradient.addColorStop(1, "#111a2b");
+        wallGradient.addColorStop(0, "#262d39");
+        wallGradient.addColorStop(0.48, "#1a202b");
+        wallGradient.addColorStop(1, "#141922");
         ctx.fillStyle = wallGradient;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        ctx.fillStyle = "#0f1728";
+        const wallPanelGradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
+        wallPanelGradient.addColorStop(0, "rgba(255,255,255,0.03)");
+        wallPanelGradient.addColorStop(0.55, "rgba(255,255,255,0)");
+        wallPanelGradient.addColorStop(1, "rgba(255,255,255,0.05)");
+        ctx.fillStyle = wallPanelGradient;
+        for (let x = 0; x < canvas.width; x += 95) {
+          ctx.fillRect(x, 0, 2, 438);
+        }
+
+        ctx.fillStyle = "#0e131b";
         ctx.fillRect(0, 438, canvas.width, 82);
 
         const vignette = ctx.createRadialGradient(
@@ -785,15 +1122,15 @@
           canvas.height / 2,
           420
         );
-        vignette.addColorStop(0, "rgba(255,255,255,0.1)");
-        vignette.addColorStop(1, "rgba(0,0,0,0.5)");
+        vignette.addColorStop(0, "rgba(255,255,255,0.08)");
+        vignette.addColorStop(1, "rgba(0,0,0,0.58)");
         ctx.fillStyle = vignette;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        ctx.fillStyle = "#cfd8e8";
+        ctx.fillStyle = "#737d8f";
         ctx.fillRect(doorRect.x - 16, doorRect.y - 16, doorRect.w + 32, doorRect.h + 32);
 
-        ctx.fillStyle = "#acb8d1";
+        ctx.fillStyle = "#303846";
         ctx.fillRect(doorRect.x - 7, doorRect.y - 7, doorRect.w + 14, doorRect.h + 14);
 
         ctx.fillStyle = applyBrightness(state.color, state.brightness);
@@ -950,22 +1287,40 @@
 
         ctx.restore();
 
-        ctx.strokeStyle = "rgba(17,27,46,0.35)";
+        ctx.strokeStyle = "rgba(11,16,24,0.7)";
         ctx.lineWidth = 2;
         ctx.strokeRect(doorRect.x, doorRect.y, doorRect.w, doorRect.h);
 
-        ctx.fillStyle = "#d7dde8";
+        const floorShadow = ctx.createRadialGradient(
+          doorRect.x + doorRect.w / 2,
+          doorRect.y + doorRect.h + 8,
+          25,
+          doorRect.x + doorRect.w / 2,
+          doorRect.y + doorRect.h + 8,
+          190
+        );
+        floorShadow.addColorStop(0, "rgba(0,0,0,0.46)");
+        floorShadow.addColorStop(1, "rgba(0,0,0,0)");
+        ctx.fillStyle = floorShadow;
+        ctx.fillRect(doorRect.x - 46, doorRect.y + doorRect.h - 8, doorRect.w + 90, 76);
+
+        ctx.fillStyle = "#c5cbd6";
         ctx.fillRect(doorRect.x + doorRect.w - 25, doorRect.y + doorRect.h / 2 - 28, 8, 56);
 
         ctx.beginPath();
         ctx.arc(doorRect.x + doorRect.w - 20, doorRect.y + doorRect.h / 2 - 34, 9, 0, Math.PI * 2);
-        ctx.fillStyle = "#bcc7da";
+        ctx.fillStyle = "#a4adbc";
         ctx.fill();
       }
 
       function setStateAndRender(partial) {
         Object.assign(state, partial);
+        const hsv = hexToHsv(state.color);
+        wheelState.h = hsv.h;
+        wheelState.s = hsv.s;
         setActiveSwatch();
+        drawColorWheel();
+        updateHexUI();
         drawScene();
       }
 
@@ -979,6 +1334,24 @@
 
       doorColorInput.addEventListener("input", (event) => {
         setStateAndRender({ color: event.target.value });
+      });
+
+      colorWheel.addEventListener("pointerdown", (event) => {
+        const rect = colorWheel.getBoundingClientRect();
+        const radius = rect.width / 2;
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        const dx = x - radius;
+        const dy = y - radius;
+        const dist = Math.min(Math.sqrt(dx * dx + dy * dy), radius);
+        const sat = dist / radius;
+        let hue = Math.atan2(dy, dx) * (180 / Math.PI);
+        if (hue < 0) hue += 360;
+        wheelState.h = hue;
+        wheelState.s = sat;
+        const selected = hsvToHex(hue, sat, 1);
+        doorColorInput.value = selected;
+        setStateAndRender({ color: selected });
       });
 
       brightnessInput.addEventListener("input", (event) => {
@@ -1019,11 +1392,27 @@
         artworkInput.value = "";
 
         setActiveSwatch();
+        drawColorWheel();
+        updateHexUI();
         drawScene();
+      });
+
+      copyHex.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(state.color.toUpperCase());
+          copyHex.textContent = "Copied";
+          setTimeout(() => {
+            copyHex.textContent = "Copy";
+          }, 1000);
+        } catch (_) {
+          copyHex.textContent = "No Clip";
+        }
       });
 
       document.getElementById("year").textContent = new Date().getFullYear();
       setActiveSwatch();
+      drawColorWheel();
+      updateHexUI();
       drawScene();
     })();
   </script>
