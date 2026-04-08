@@ -22,8 +22,8 @@
       --bronze: #98734a;
       --bronze-soft: #b3916a;
       --shadow: 0 26px 52px rgba(0, 0, 0, 0.52);
-      --radius: 8px;
-      --radius-sm: 4px;
+      --radius: 10px;
+      --radius-sm: 5px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -221,6 +221,38 @@
 
     .section { padding: 72px 0; }
 
+    .feature-strip {
+      padding: 24px 0 10px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .feature-item {
+      border: 1px solid rgba(150, 163, 183, 0.24);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #151d28 0%, #0f151e 100%);
+      padding: 14px 16px;
+    }
+
+    .feature-item strong {
+      display: block;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+      color: #d5b188;
+      margin-bottom: 6px;
+    }
+
+    .feature-item p {
+      color: #aab5c7;
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+
     #configurator.section {
       border-top: 1px solid rgba(255, 255, 255, 0.05);
       border-bottom: 1px solid rgba(255, 255, 255, 0.06);
@@ -253,7 +285,7 @@
       box-shadow: var(--shadow);
     }
 
-    .preview-card { padding: 18px; }
+    .preview-card { padding: 20px; }
 
     .preview-meta {
       display: flex;
@@ -274,6 +306,36 @@
     }
 
     .preview-caption { color: #8e9bae; font-size: 0.82rem; }
+
+    .preview-specs {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .preview-spec {
+      border: 1px solid rgba(129, 143, 164, 0.28);
+      border-radius: 5px;
+      background: linear-gradient(180deg, rgba(30, 39, 53, 0.75) 0%, rgba(17, 24, 34, 0.9) 100%);
+      padding: 8px;
+    }
+
+    .preview-spec small {
+      display: block;
+      font-size: 0.63rem;
+      color: #96a4ba;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+
+    .preview-spec span {
+      color: #e7edf6;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
 
     .canvas-frame {
       border-radius: 6px;
@@ -300,25 +362,25 @@
       box-shadow: 0 26px 40px rgba(0, 0, 0, 0.6);
     }
 
-    .controls-card { padding: 18px; }
+    .controls-card { padding: 20px; }
     .controls-grid { display: grid; gap: 14px; }
 
     .control-group,
     .field,
     .control-actions {
       border: 1px solid rgba(121, 135, 156, 0.26);
-      border-radius: 6px;
-      background: linear-gradient(180deg, rgba(33, 43, 59, 0.76) 0%, rgba(20, 28, 39, 0.86) 100%);
-      padding: 12px;
+      border-radius: 7px;
+      background: linear-gradient(180deg, rgba(36, 46, 63, 0.72) 0%, rgba(17, 25, 35, 0.92) 100%);
+      padding: 13px;
     }
 
     .control-group h3 {
-      font-size: 0.74rem;
+      font-size: 0.72rem;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.15em;
       font-weight: 700;
-      color: #d8e0ed;
-      margin-bottom: 10px;
+      color: #dce4f1;
+      margin-bottom: 11px;
     }
 
     .preset-row { display: grid; grid-template-columns: repeat(5, minmax(42px, 1fr)); gap: 10px; }
@@ -422,7 +484,7 @@
       color: #dde5f2;
       padding: 7px;
       cursor: pointer;
-      min-height: 84px;
+      min-height: 88px;
       transition: border-color 0.15s ease, transform 0.15s ease;
     }
 
@@ -457,6 +519,32 @@
     }
 
     .control-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+    .spec-list {
+      list-style: none;
+      display: grid;
+      gap: 7px;
+      color: #b8c2d2;
+      font-size: 0.82rem;
+      line-height: 1.45;
+    }
+
+    .spec-list li {
+      padding-left: 12px;
+      position: relative;
+    }
+
+    .spec-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #b88c5f;
+      box-shadow: 0 0 0 2px rgba(184, 140, 95, 0.2);
+    }
 
     .materials {
       margin-top: 30px;
@@ -523,7 +611,8 @@
     @media (max-width: 1030px) {
       .hero-grid,
       .config-wrap,
-      .cta-grid { grid-template-columns: 1fr; }
+      .cta-grid,
+      .feature-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 760px) {
@@ -579,6 +668,22 @@
         </div>
       </div>
     </section>
+    <section class="feature-strip">
+      <div class="container feature-grid">
+        <article class="feature-item">
+          <strong>Built for Real Projects</strong>
+          <p>Designed for multifamily, hospitality, workplace, and student housing renovation programs.</p>
+        </article>
+        <article class="feature-item">
+          <strong>Field-Ready Process</strong>
+          <p>From finish alignment to installation sequencing, each order is structured for contractor delivery.</p>
+        </article>
+        <article class="feature-item">
+          <strong>Premium Surface Library</strong>
+          <p>Practical commercial durability with curated wood, matte, stone, and metallic presentation options.</p>
+        </article>
+      </div>
+    </section>
 
     <section class="section" id="configurator">
       <div class="container">
@@ -598,6 +703,20 @@
             </div>
             <div class="canvas-frame">
               <canvas id="doorCanvas" width="760" height="520" aria-label="Live door preview"></canvas>
+            </div>
+            <div class="preview-specs" aria-label="Current preview settings">
+              <div class="preview-spec">
+                <small>Selected Finish</small>
+                <span id="currentFinish">Wood Grain – Walnut</span>
+              </div>
+              <div class="preview-spec">
+                <small>Base Color</small>
+                <span id="currentColor">#6E4A2D</span>
+              </div>
+              <div class="preview-spec">
+                <small>Brightness</small>
+                <span id="currentBrightness">100%</span>
+              </div>
             </div>
           </article>
 
@@ -675,6 +794,15 @@
               <div class="control-actions">
                 <button id="resetConfig" class="btn btn-secondary" type="button">Reset</button>
               </div>
+
+              <div class="control-group">
+                <h3>Specification Notes</h3>
+                <ul class="spec-list">
+                  <li>Preview reflects tone, grain direction, and sheen intent for finish review.</li>
+                  <li>Final substrate and corridor lighting conditions are confirmed during project scoping.</li>
+                  <li>Thor Contractors provides coordinated finish guidance and field install planning.</li>
+                </ul>
+              </div>
             </div>
           </aside>
         </div>
@@ -737,6 +865,9 @@
       const resetButton = document.getElementById("resetConfig");
       const presetButtons = Array.from(document.querySelectorAll(".swatch"));
       const finishGrid = document.getElementById("finishGrid");
+      const currentFinish = document.getElementById("currentFinish");
+      const currentColor = document.getElementById("currentColor");
+      const currentBrightness = document.getElementById("currentBrightness");
 
       const finishCards = [
         { value: "wood-walnut", label: "Walnut", category: "Wood Grain", style: "linear-gradient(135deg,#5f3b21 0%,#8b5a33 45%,#3a2414 100%)" },
@@ -793,6 +924,13 @@
         });
       }
 
+      function updatePreviewMeta() {
+        const finishLabel = finishSelect.options[finishSelect.selectedIndex]?.textContent || state.finish;
+        currentFinish.textContent = finishLabel;
+        currentColor.textContent = state.color.toUpperCase();
+        currentBrightness.textContent = `${state.brightness}%`;
+      }
+
       function buildFinishCards() {
         finishCards.forEach((item) => {
           const card = document.createElement("button");
@@ -840,8 +978,8 @@
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         const wallGradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-        wallGradient.addColorStop(0, "#2a313f");
-        wallGradient.addColorStop(0.47, "#1a222f");
+        wallGradient.addColorStop(0, "#313947");
+        wallGradient.addColorStop(0.5, "#1b2431");
         wallGradient.addColorStop(1, "#121823");
         ctx.fillStyle = wallGradient;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -854,6 +992,10 @@
         for (let x = 0; x < canvas.width; x += 90) {
           ctx.fillRect(x, 0, 2, 440);
         }
+
+        ctx.fillStyle = "rgba(255,255,255,0.07)";
+        ctx.fillRect(72, 64, 20, 330);
+        ctx.fillRect(canvas.width - 92, 64, 20, 330);
 
         ctx.fillStyle = "#0d121a";
         ctx.fillRect(0, 440, canvas.width, 80);
@@ -958,11 +1100,10 @@
           const matteColor = state.finish === "matte-black" ? "rgba(0,0,0,0.58)" : "rgba(34,40,50,0.52)";
           ctx.fillStyle = matteColor;
           ctx.fillRect(doorRect.x, doorRect.y, doorRect.w, doorRect.h);
-          ctx.fillStyle = "rgba(255,255,255,0.04)";
-          for (let i = 0; i < 220; i += 1) {
-            const x = doorRect.x + Math.random() * doorRect.w;
-            const y = doorRect.y + Math.random() * doorRect.h;
-            ctx.fillRect(x, y, 1, 1);
+          ctx.fillStyle = "rgba(255,255,255,0.045)";
+          for (let y = 0; y < doorRect.h; y += 4) {
+            const xJitter = (Math.sin(y * 0.21) + 1) * 1.5;
+            ctx.fillRect(doorRect.x + xJitter, doorRect.y + y, doorRect.w - xJitter * 2, 1);
           }
         }
 
@@ -1000,9 +1141,10 @@
           ctx.fillRect(doorRect.x, doorRect.y, doorRect.w, doorRect.h);
           ctx.fillStyle = "rgba(255,255,255,0.05)";
           for (let i = 0; i < 340; i += 1) {
-            const x = doorRect.x + Math.random() * doorRect.w;
-            const y = doorRect.y + Math.random() * doorRect.h;
-            const s = Math.random() * 1.8 + 0.4;
+            const seed = i * 13.17;
+            const x = doorRect.x + ((Math.sin(seed) + 1) / 2) * doorRect.w;
+            const y = doorRect.y + ((Math.cos(seed * 1.3) + 1) / 2) * doorRect.h;
+            const s = ((Math.sin(seed * 2.4) + 1) / 2) * 1.4 + 0.4;
             ctx.fillRect(x, y, s, s);
           }
         }
@@ -1067,6 +1209,7 @@
         Object.assign(state, partial);
         setActiveSwatch();
         syncFinishCards();
+        updatePreviewMeta();
         drawScene();
       }
 
@@ -1121,6 +1264,7 @@
 
         setActiveSwatch();
         syncFinishCards();
+        updatePreviewMeta();
         drawScene();
       });
 
@@ -1128,6 +1272,7 @@
       document.getElementById("year").textContent = new Date().getFullYear();
       setActiveSwatch();
       syncFinishCards();
+      updatePreviewMeta();
       drawScene();
     })();
   </script>
