@@ -22,8 +22,8 @@
       --bronze: #98734a;
       --bronze-soft: #b3916a;
       --shadow: 0 26px 52px rgba(0, 0, 0, 0.52);
-      --radius: 8px;
-      --radius-sm: 4px;
+      --radius: 10px;
+      --radius-sm: 5px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -221,12 +221,44 @@
 
     .section { padding: 72px 0; }
 
+    .feature-strip {
+      padding: 24px 0 10px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .feature-item {
+      border: 1px solid rgba(150, 163, 183, 0.24);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #151d28 0%, #0f151e 100%);
+      padding: 14px 16px;
+    }
+
+    .feature-item strong {
+      display: block;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+      color: #d5b188;
+      margin-bottom: 6px;
+    }
+
+    .feature-item p {
+      color: #aab5c7;
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+
     #configurator.section {
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       background:
-        radial-gradient(circle at 24% 12%, rgba(170, 129, 85, 0.14) 0%, rgba(10, 14, 20, 0) 42%),
-        linear-gradient(180deg, #0d1219 0%, #090d13 100%);
+        radial-gradient(circle at 24% 12%, rgba(182, 137, 90, 0.16) 0%, rgba(10, 14, 20, 0) 42%),
+        linear-gradient(180deg, #101621 0%, #090d13 100%);
     }
 
     .section-head { margin-bottom: 28px; }
@@ -237,7 +269,12 @@
       margin-bottom: 8px;
     }
 
-    #configurator .section-head p { color: #aab4c5; max-width: 75ch; }
+    #configurator .section-head p {
+      color: #b4bfd0;
+      max-width: 75ch;
+      font-size: 1.01rem;
+      line-height: 1.58;
+    }
 
     .config-wrap {
       display: grid;
@@ -248,12 +285,14 @@
 
     .card {
       border-radius: var(--radius);
-      border: 1px solid rgba(133, 145, 164, 0.28);
-      background: linear-gradient(180deg, #151c26 0%, #0f151e 100%);
-      box-shadow: var(--shadow);
+      border: 1px solid rgba(152, 165, 185, 0.28);
+      background: linear-gradient(180deg, #18202b 0%, #101722 100%);
+      box-shadow:
+        0 24px 42px rgba(0, 0, 0, 0.46),
+        0 0 0 1px rgba(255, 255, 255, 0.02) inset;
     }
 
-    .preview-card { padding: 18px; }
+    .preview-card { padding: 22px; }
 
     .preview-meta {
       display: flex;
@@ -266,20 +305,50 @@
     .preview-title {
       font-size: 0.72rem;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: #cbab83;
-      border: 1px solid rgba(179, 143, 101, 0.38);
-      padding: 4px 8px;
+      letter-spacing: 0.13em;
+      color: #dbba94;
+      border: 1px solid rgba(202, 165, 125, 0.42);
+      padding: 4px 9px;
       border-radius: 3px;
     }
 
-    .preview-caption { color: #8e9bae; font-size: 0.82rem; }
+    .preview-caption { color: #99a7bc; font-size: 0.82rem; }
+
+    .preview-specs {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .preview-spec {
+      border: 1px solid rgba(140, 155, 176, 0.3);
+      border-radius: 5px;
+      background: linear-gradient(180deg, rgba(33, 44, 60, 0.76) 0%, rgba(18, 26, 37, 0.92) 100%);
+      padding: 9px;
+    }
+
+    .preview-spec small {
+      display: block;
+      font-size: 0.63rem;
+      color: #9eacc2;
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+      margin-bottom: 4px;
+    }
+
+    .preview-spec span {
+      color: #edf3fc;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
 
     .canvas-frame {
       border-radius: 6px;
-      border: 1px solid rgba(126, 141, 164, 0.34);
+      border: 1px solid rgba(139, 154, 177, 0.35);
       background:
-        linear-gradient(180deg, rgba(28, 37, 50, 0.92) 0%, rgba(12, 18, 26, 0.98) 100%),
+        linear-gradient(180deg, rgba(33, 43, 58, 0.92) 0%, rgba(13, 19, 28, 0.98) 100%),
         repeating-linear-gradient(
           90deg,
           rgba(255, 255, 255, 0.015) 0,
@@ -287,8 +356,10 @@
           transparent 1px,
           transparent 88px
         );
-      box-shadow: inset 0 22px 30px rgba(0, 0, 0, 0.42);
-      padding: 16px;
+      box-shadow:
+        inset 0 22px 34px rgba(0, 0, 0, 0.42),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      padding: 17px;
     }
 
     canvas {
@@ -297,28 +368,31 @@
       margin: 0 auto;
       display: block;
       border-radius: 4px;
-      box-shadow: 0 26px 40px rgba(0, 0, 0, 0.6);
+      box-shadow:
+        0 28px 42px rgba(0, 0, 0, 0.62),
+        0 0 0 1px rgba(255, 255, 255, 0.04);
     }
 
-    .controls-card { padding: 18px; }
-    .controls-grid { display: grid; gap: 14px; }
+    .controls-card { padding: 22px; }
+    .controls-grid { display: grid; gap: 15px; }
 
     .control-group,
     .field,
     .control-actions {
-      border: 1px solid rgba(121, 135, 156, 0.26);
-      border-radius: 6px;
-      background: linear-gradient(180deg, rgba(33, 43, 59, 0.76) 0%, rgba(20, 28, 39, 0.86) 100%);
-      padding: 12px;
+      border: 1px solid rgba(136, 151, 174, 0.3);
+      border-radius: 7px;
+      background: linear-gradient(180deg, rgba(38, 49, 67, 0.74) 0%, rgba(18, 27, 38, 0.94) 100%);
+      padding: 14px;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
     }
 
     .control-group h3 {
-      font-size: 0.74rem;
+      font-size: 0.72rem;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.15em;
       font-weight: 700;
-      color: #d8e0ed;
-      margin-bottom: 10px;
+      color: #e1e8f3;
+      margin-bottom: 12px;
     }
 
     .preset-row { display: grid; grid-template-columns: repeat(5, minmax(42px, 1fr)); gap: 10px; }
@@ -328,11 +402,16 @@
     .swatch {
       width: 100%;
       aspect-ratio: 1 / 1;
-      border: 1px solid rgba(240, 244, 250, 0.4);
+      border: 1px solid rgba(240, 244, 250, 0.44);
       border-radius: 4px;
       cursor: pointer;
-      box-shadow: inset 0 8px 12px rgba(255, 255, 255, 0.06), 0 0 0 1px rgba(7, 11, 16, 0.9);
+      box-shadow:
+        inset 0 8px 12px rgba(255, 255, 255, 0.07),
+        0 0 0 1px rgba(7, 11, 16, 0.9);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
     }
+
+    .swatch:hover { transform: translateY(-1px); }
 
     .swatch.active {
       border-color: rgba(241, 218, 186, 0.55);
@@ -344,7 +423,7 @@
 
     .swatch-label {
       font-size: 0.68rem;
-      color: #bfc8d8;
+      color: #c9d2e2;
       text-align: center;
       line-height: 1.2;
       font-weight: 600;
@@ -357,7 +436,7 @@
       text-transform: uppercase;
       letter-spacing: 0.12em;
       font-weight: 700;
-      color: #cfdae9;
+      color: #d9e2f0;
     }
 
     input[type="color"],
@@ -386,10 +465,10 @@
     input[type="email"],
     textarea,
     input[type="file"] {
-      border: 1px solid rgba(155, 170, 194, 0.36);
+      border: 1px solid rgba(160, 177, 202, 0.38);
       border-radius: 4px;
-      padding: 10px 11px;
-      background: rgba(8, 13, 19, 0.95);
+      padding: 10px 12px;
+      background: rgba(8, 13, 19, 0.92);
       color: #edf3fc;
       font: inherit;
     }
@@ -417,13 +496,18 @@
       gap: 5px;
       text-align: left;
       border-radius: 4px;
-      border: 1px solid rgba(140, 154, 177, 0.3);
-      background: linear-gradient(180deg, #202938 0%, #17202d 100%);
-      color: #dde5f2;
-      padding: 7px;
+      border: 1px solid rgba(148, 163, 186, 0.34);
+      background: linear-gradient(180deg, #212c3c 0%, #172230 100%);
+      color: #e2e9f5;
+      padding: 8px;
       cursor: pointer;
-      min-height: 84px;
-      transition: border-color 0.15s ease, transform 0.15s ease;
+      min-height: 88px;
+      transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .finish-card:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 14px rgba(0, 0, 0, 0.24);
     }
 
     .finish-chip {
@@ -446,17 +530,45 @@
 
     .finish-card.active {
       border-color: rgba(206, 170, 128, 0.7);
-      box-shadow: inset 0 0 0 1px rgba(120, 87, 50, 0.85);
+      box-shadow:
+        inset 0 0 0 1px rgba(120, 87, 50, 0.85),
+        0 0 0 1px rgba(198, 163, 124, 0.22);
     }
 
     .finish-select-note {
-      color: #99a6bb;
+      color: #a8b5c9;
       font-size: 0.68rem;
       text-transform: uppercase;
       letter-spacing: 0.09em;
     }
 
     .control-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+    .spec-list {
+      list-style: none;
+      display: grid;
+      gap: 7px;
+      color: #c4cddd;
+      font-size: 0.82rem;
+      line-height: 1.45;
+    }
+
+    .spec-list li {
+      padding-left: 12px;
+      position: relative;
+    }
+
+    .spec-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #b88c5f;
+      box-shadow: 0 0 0 2px rgba(184, 140, 95, 0.2);
+    }
 
     .materials {
       margin-top: 30px;
@@ -523,7 +635,8 @@
     @media (max-width: 1030px) {
       .hero-grid,
       .config-wrap,
-      .cta-grid { grid-template-columns: 1fr; }
+      .cta-grid,
+      .feature-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 760px) {
@@ -579,6 +692,22 @@
         </div>
       </div>
     </section>
+    <section class="feature-strip">
+      <div class="container feature-grid">
+        <article class="feature-item">
+          <strong>Built for Real Projects</strong>
+          <p>Designed for multifamily, hospitality, workplace, and student housing renovation programs.</p>
+        </article>
+        <article class="feature-item">
+          <strong>Field-Ready Process</strong>
+          <p>From finish alignment to installation sequencing, each order is structured for contractor delivery.</p>
+        </article>
+        <article class="feature-item">
+          <strong>Premium Surface Library</strong>
+          <p>Practical commercial durability with curated wood, matte, stone, and metallic presentation options.</p>
+        </article>
+      </div>
+    </section>
 
     <section class="section" id="configurator">
       <div class="container">
@@ -598,6 +727,20 @@
             </div>
             <div class="canvas-frame">
               <canvas id="doorCanvas" width="760" height="520" aria-label="Live door preview"></canvas>
+            </div>
+            <div class="preview-specs" aria-label="Current preview settings">
+              <div class="preview-spec">
+                <small>Selected Finish</small>
+                <span id="currentFinish">Wood Grain – Walnut</span>
+              </div>
+              <div class="preview-spec">
+                <small>Base Color</small>
+                <span id="currentColor">#6E4A2D</span>
+              </div>
+              <div class="preview-spec">
+                <small>Brightness</small>
+                <span id="currentBrightness">100%</span>
+              </div>
             </div>
           </article>
 
@@ -675,6 +818,15 @@
               <div class="control-actions">
                 <button id="resetConfig" class="btn btn-secondary" type="button">Reset</button>
               </div>
+
+              <div class="control-group">
+                <h3>Specification Notes</h3>
+                <ul class="spec-list">
+                  <li>Preview reflects tone, grain direction, and sheen intent for finish review.</li>
+                  <li>Final substrate and corridor lighting conditions are confirmed during project scoping.</li>
+                  <li>Thor Contractors provides coordinated finish guidance and field install planning.</li>
+                </ul>
+              </div>
             </div>
           </aside>
         </div>
@@ -737,6 +889,9 @@
       const resetButton = document.getElementById("resetConfig");
       const presetButtons = Array.from(document.querySelectorAll(".swatch"));
       const finishGrid = document.getElementById("finishGrid");
+      const currentFinish = document.getElementById("currentFinish");
+      const currentColor = document.getElementById("currentColor");
+      const currentBrightness = document.getElementById("currentBrightness");
 
       const finishCards = [
         { value: "wood-walnut", label: "Walnut", category: "Wood Grain", style: "linear-gradient(135deg,#5f3b21 0%,#8b5a33 45%,#3a2414 100%)" },
@@ -793,6 +948,13 @@
         });
       }
 
+      function updatePreviewMeta() {
+        const finishLabel = finishSelect.options[finishSelect.selectedIndex]?.textContent || state.finish;
+        currentFinish.textContent = finishLabel;
+        currentColor.textContent = state.color.toUpperCase();
+        currentBrightness.textContent = `${state.brightness}%`;
+      }
+
       function buildFinishCards() {
         finishCards.forEach((item) => {
           const card = document.createElement("button");
@@ -840,8 +1002,8 @@
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         const wallGradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-        wallGradient.addColorStop(0, "#2a313f");
-        wallGradient.addColorStop(0.47, "#1a222f");
+        wallGradient.addColorStop(0, "#313947");
+        wallGradient.addColorStop(0.5, "#1b2431");
         wallGradient.addColorStop(1, "#121823");
         ctx.fillStyle = wallGradient;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -854,6 +1016,10 @@
         for (let x = 0; x < canvas.width; x += 90) {
           ctx.fillRect(x, 0, 2, 440);
         }
+
+        ctx.fillStyle = "rgba(255,255,255,0.07)";
+        ctx.fillRect(72, 64, 20, 330);
+        ctx.fillRect(canvas.width - 92, 64, 20, 330);
 
         ctx.fillStyle = "#0d121a";
         ctx.fillRect(0, 440, canvas.width, 80);
@@ -958,11 +1124,10 @@
           const matteColor = state.finish === "matte-black" ? "rgba(0,0,0,0.58)" : "rgba(34,40,50,0.52)";
           ctx.fillStyle = matteColor;
           ctx.fillRect(doorRect.x, doorRect.y, doorRect.w, doorRect.h);
-          ctx.fillStyle = "rgba(255,255,255,0.04)";
-          for (let i = 0; i < 220; i += 1) {
-            const x = doorRect.x + Math.random() * doorRect.w;
-            const y = doorRect.y + Math.random() * doorRect.h;
-            ctx.fillRect(x, y, 1, 1);
+          ctx.fillStyle = "rgba(255,255,255,0.045)";
+          for (let y = 0; y < doorRect.h; y += 4) {
+            const xJitter = (Math.sin(y * 0.21) + 1) * 1.5;
+            ctx.fillRect(doorRect.x + xJitter, doorRect.y + y, doorRect.w - xJitter * 2, 1);
           }
         }
 
@@ -1000,9 +1165,10 @@
           ctx.fillRect(doorRect.x, doorRect.y, doorRect.w, doorRect.h);
           ctx.fillStyle = "rgba(255,255,255,0.05)";
           for (let i = 0; i < 340; i += 1) {
-            const x = doorRect.x + Math.random() * doorRect.w;
-            const y = doorRect.y + Math.random() * doorRect.h;
-            const s = Math.random() * 1.8 + 0.4;
+            const seed = i * 13.17;
+            const x = doorRect.x + ((Math.sin(seed) + 1) / 2) * doorRect.w;
+            const y = doorRect.y + ((Math.cos(seed * 1.3) + 1) / 2) * doorRect.h;
+            const s = ((Math.sin(seed * 2.4) + 1) / 2) * 1.4 + 0.4;
             ctx.fillRect(x, y, s, s);
           }
         }
@@ -1067,6 +1233,7 @@
         Object.assign(state, partial);
         setActiveSwatch();
         syncFinishCards();
+        updatePreviewMeta();
         drawScene();
       }
 
@@ -1121,6 +1288,7 @@
 
         setActiveSwatch();
         syncFinishCards();
+        updatePreviewMeta();
         drawScene();
       });
 
@@ -1128,6 +1296,7 @@
       document.getElementById("year").textContent = new Date().getFullYear();
       setActiveSwatch();
       syncFinishCards();
+      updatePreviewMeta();
       drawScene();
     })();
   </script>
