@@ -236,19 +236,25 @@
       padding: 64px 0;
     }
 
+    #configurator.section {
+      background: radial-gradient(circle at 15% 15%, #324c80 0%, #1f2e4b 36%, #141c2f 100%);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
     .section-head {
       margin-bottom: 26px;
     }
 
-    .section-head h2 {
-      color: var(--navy);
+    #configurator .section-head h2 {
+      color: #ffffff;
       font-size: clamp(1.6rem, 3vw, 2.4rem);
       margin-bottom: 8px;
       line-height: 1.1;
     }
 
-    .section-head p {
-      color: #49556e;
+    #configurator .section-head p {
+      color: rgba(255, 255, 255, 0.78);
       max-width: 70ch;
     }
 
@@ -266,15 +272,22 @@
       box-shadow: var(--shadow);
     }
 
+    #configurator .card {
+      background: linear-gradient(180deg, rgba(18, 27, 46, 0.98) 0%, rgba(15, 21, 35, 0.99) 100%);
+      border: 1px solid rgba(124, 142, 175, 0.25);
+      box-shadow: 0 22px 40px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    }
+
     .preview-card {
       padding: 18px;
     }
 
     .canvas-frame {
-      background: linear-gradient(180deg, #edf1f7 0%, #e3e9f4 100%);
+      background: radial-gradient(circle at 50% 30%, #2f446f 0%, #1c2944 40%, #11192a 100%);
       border-radius: 10px;
-      border: 1px solid #d2dbea;
+      border: 1px solid rgba(129, 148, 185, 0.32);
       padding: 16px;
+      box-shadow: inset 0 12px 30px rgba(5, 9, 16, 0.5);
     }
 
     canvas {
@@ -284,6 +297,7 @@
       margin: 0 auto;
       background: transparent;
       border-radius: 8px;
+      box-shadow: 0 16px 28px rgba(0, 0, 0, 0.45);
     }
 
     .controls-card {
@@ -297,7 +311,7 @@
 
     .control-group h3 {
       font-size: 0.96rem;
-      color: var(--navy);
+      color: #ffffff;
       margin-bottom: 8px;
     }
 
@@ -329,7 +343,7 @@
     .swatch-label {
       font-size: 0.78rem;
       line-height: 1.2;
-      color: #4a566f;
+      color: rgba(255, 255, 255, 0.88);
       font-weight: 600;
       text-align: center;
     }
@@ -340,7 +354,7 @@
     }
 
     .field label {
-      color: #3f4a63;
+      color: rgba(255, 255, 255, 0.88);
       font-weight: 600;
       font-size: 0.9rem;
     }
@@ -357,9 +371,9 @@
 
     input[type="color"] {
       height: 42px;
-      border: 1px solid #cfd8e8;
+      border: 1px solid rgba(166, 183, 215, 0.45);
       border-radius: 8px;
-      background: #fff;
+      background: rgba(255, 255, 255, 0.08);
       padding: 2px;
       cursor: pointer;
     }
@@ -380,6 +394,39 @@
       font: inherit;
       color: var(--ink);
       background: #fff;
+    }
+
+    #configurator select,
+    #configurator input[type="file"],
+    #configurator input[type="text"],
+    #configurator input[type="email"],
+    #configurator textarea {
+      border: 1px solid rgba(166, 183, 215, 0.38);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font: inherit;
+      color: #eef2fb;
+      background: rgba(15, 24, 41, 0.86);
+    }
+
+    #configurator input[type="file"]::file-selector-button {
+      background: var(--orange);
+      border: none;
+      color: #fff;
+      padding: 7px 10px;
+      border-radius: 6px;
+      margin-right: 10px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    #configurator .btn-secondary {
+      background: #1c2c4a;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    #configurator .btn-secondary:hover {
+      background: #253a61;
     }
 
     .control-actions {
@@ -669,9 +716,9 @@
       const presetButtons = Array.from(document.querySelectorAll(".swatch"));
 
       const initialState = {
-        color: "#B98A53",
+        color: "#6E4A2D",
         brightness: 100,
-        finish: "wood-oak",
+        finish: "wood-walnut",
         artwork: null
       };
 
@@ -721,18 +768,32 @@
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         const wallGradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-        wallGradient.addColorStop(0, "#f7f9fc");
-        wallGradient.addColorStop(1, "#e3e9f4");
+        wallGradient.addColorStop(0, "#222f4c");
+        wallGradient.addColorStop(0.55, "#172238");
+        wallGradient.addColorStop(1, "#111a2b");
         ctx.fillStyle = wallGradient;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        ctx.fillStyle = "#d5deec";
+        ctx.fillStyle = "#0f1728";
         ctx.fillRect(0, 438, canvas.width, 82);
 
-        ctx.fillStyle = "#fefefe";
+        const vignette = ctx.createRadialGradient(
+          canvas.width / 2,
+          canvas.height / 2,
+          40,
+          canvas.width / 2,
+          canvas.height / 2,
+          420
+        );
+        vignette.addColorStop(0, "rgba(255,255,255,0.1)");
+        vignette.addColorStop(1, "rgba(0,0,0,0.5)");
+        ctx.fillStyle = vignette;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = "#cfd8e8";
         ctx.fillRect(doorRect.x - 16, doorRect.y - 16, doorRect.w + 32, doorRect.h + 32);
 
-        ctx.fillStyle = "#c7d2e4";
+        ctx.fillStyle = "#acb8d1";
         ctx.fillRect(doorRect.x - 7, doorRect.y - 7, doorRect.w + 14, doorRect.h + 14);
 
         ctx.fillStyle = applyBrightness(state.color, state.brightness);
@@ -745,13 +806,13 @@
 
         if (state.finish === "wood-oak") {
           const oakBase = ctx.createLinearGradient(doorRect.x, doorRect.y, doorRect.x + doorRect.w, doorRect.y + doorRect.h);
-          oakBase.addColorStop(0, "rgba(191, 146, 87, 0.65)");
-          oakBase.addColorStop(0.45, "rgba(159, 114, 62, 0.32)");
-          oakBase.addColorStop(1, "rgba(109, 75, 38, 0.45)");
+          oakBase.addColorStop(0, "rgba(182, 133, 74, 0.76)");
+          oakBase.addColorStop(0.45, "rgba(143, 97, 49, 0.42)");
+          oakBase.addColorStop(1, "rgba(104, 69, 34, 0.55)");
           ctx.fillStyle = oakBase;
           ctx.fillRect(doorRect.x, doorRect.y, doorRect.w, doorRect.h);
 
-          ctx.strokeStyle = "rgba(106, 73, 35, 0.26)";
+          ctx.strokeStyle = "rgba(108, 70, 30, 0.34)";
           for (let y = doorRect.y + 4; y < doorRect.y + doorRect.h; y += 7) {
             ctx.beginPath();
             ctx.moveTo(doorRect.x, y);
@@ -769,26 +830,39 @@
 
         if (state.finish === "wood-walnut") {
           const walnutBase = ctx.createLinearGradient(doorRect.x, doorRect.y, doorRect.x + doorRect.w, doorRect.y + doorRect.h);
-          walnutBase.addColorStop(0, "rgba(112, 72, 41, 0.7)");
-          walnutBase.addColorStop(0.5, "rgba(73, 44, 24, 0.38)");
-          walnutBase.addColorStop(1, "rgba(54, 31, 16, 0.5)");
+          walnutBase.addColorStop(0, "rgba(111, 68, 38, 0.9)");
+          walnutBase.addColorStop(0.25, "rgba(88, 51, 28, 0.7)");
+          walnutBase.addColorStop(0.55, "rgba(62, 35, 17, 0.55)");
+          walnutBase.addColorStop(1, "rgba(43, 23, 10, 0.7)");
           ctx.fillStyle = walnutBase;
           ctx.fillRect(doorRect.x, doorRect.y, doorRect.w, doorRect.h);
 
-          ctx.strokeStyle = "rgba(40, 23, 11, 0.34)";
-          for (let y = doorRect.y + 5; y < doorRect.y + doorRect.h; y += 8) {
+          ctx.strokeStyle = "rgba(28, 14, 7, 0.4)";
+          ctx.lineWidth = 1.1;
+          for (let y = doorRect.y + 5; y < doorRect.y + doorRect.h; y += 6) {
             ctx.beginPath();
             ctx.moveTo(doorRect.x, y);
             ctx.bezierCurveTo(
-              doorRect.x + doorRect.w * 0.22,
-              y + 1,
-              doorRect.x + doorRect.w * 0.74,
-              y - 2,
+              doorRect.x + doorRect.w * 0.26,
+              y + 2,
+              doorRect.x + doorRect.w * 0.75,
+              y - 3,
               doorRect.x + doorRect.w,
               y
             );
             ctx.stroke();
           }
+
+          const warmHighlight = ctx.createLinearGradient(
+            doorRect.x + 24,
+            doorRect.y,
+            doorRect.x + doorRect.w * 0.52,
+            doorRect.y
+          );
+          warmHighlight.addColorStop(0, "rgba(255, 210, 150, 0.22)");
+          warmHighlight.addColorStop(1, "rgba(255, 210, 150, 0)");
+          ctx.fillStyle = warmHighlight;
+          ctx.fillRect(doorRect.x + 14, doorRect.y + 10, doorRect.w * 0.48, doorRect.h - 20);
         }
 
         if (state.finish === "matte-black") {
@@ -846,6 +920,20 @@
           ctx.fillStyle = printGrad;
           ctx.fillRect(doorRect.x, doorRect.y, doorRect.w, doorRect.h);
         }
+
+        const edgeShadow = ctx.createLinearGradient(doorRect.x, doorRect.y, doorRect.x + doorRect.w, doorRect.y);
+        edgeShadow.addColorStop(0, "rgba(0,0,0,0.28)");
+        edgeShadow.addColorStop(0.16, "rgba(0,0,0,0.08)");
+        edgeShadow.addColorStop(0.85, "rgba(0,0,0,0.05)");
+        edgeShadow.addColorStop(1, "rgba(0,0,0,0.22)");
+        ctx.fillStyle = edgeShadow;
+        ctx.fillRect(doorRect.x, doorRect.y, doorRect.w, doorRect.h);
+
+        const topLight = ctx.createLinearGradient(doorRect.x, doorRect.y, doorRect.x, doorRect.y + doorRect.h * 0.38);
+        topLight.addColorStop(0, "rgba(255,255,255,0.2)");
+        topLight.addColorStop(1, "rgba(255,255,255,0)");
+        ctx.fillStyle = topLight;
+        ctx.fillRect(doorRect.x, doorRect.y, doorRect.w, doorRect.h);
 
         if (state.artwork) {
           const maxW = doorRect.w * 0.74;
